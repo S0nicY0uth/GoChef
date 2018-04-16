@@ -8,23 +8,29 @@
   </head>
 
   <body>
-    <header>
-    <h1>Go Chef</h1>
-    </header>
-    
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-    <% if user_signed_in? %>
-      <li>
-      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
-      </li>
-      <%= destroy_user_session_path %>
-    <% else %>
-      <li>
-      <%= link_to('Login', new_user_session_path)  %>  
-      </li>
-    <% end %>
+    <nav>
+      <% if user_signed_in? %>
+        <li>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+        </li>
+        <%= destroy_user_session_path %>
+      <% elsif current_page?(new_user_session_url) %>
+      <%= "yo yo yo" %>
+      <% else %>
+        <li>
+        <%= link_to('Login', new_user_session_path)  %>  
+        </li>
+      <% end %>
+    </nav>
+    <div class="main-container">
+      <header>
+      <h1>Go Chef</h1>
+      </header>
+  
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
     
   </body>
 </html>
