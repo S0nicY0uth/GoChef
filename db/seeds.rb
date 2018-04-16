@@ -8,13 +8,16 @@
 
 
 users = [
-    {email: 'gordonramsey@gmail.com',password: 'pass123',name: 'Gordon Ramsey',location_lat: '51.512640',location_lon:'-0.090390'},
-    {email: 'deliasmith@gmail.com',password: 'pass123',name: 'Delia Smith',location_lat: '51.512427',location_lon:'-0.164376'},
-    {email: 'ainsleyharriet@gmail.com',password: 'pass123',name: 'Ainsley Harriet',location_lat: '51.485949',location_lon:'-0.106183'}
+    {email: 'gordonramsey@gmail.com',password: 'pass123',name: 'Gordon Ramsey',location_lat: 51.512640,location_lon: -0.090390},
+    {email: 'deliasmith@gmail.com',password: 'pass123',name: 'Delia Smith',location_lat: 51.512427,location_lon: -0.164376},
+    {email: 'ainsleyharriet@gmail.com',password: 'pass123',name: 'Ainsley Harriet',location_lat: 51.485949,location_lon: -0.106183},
+    {name: 'Bella', email: 'bella@dogchow.com', location_lat: 51.533593, location_lon: -0.045855, password: 'pass123'},
+    {name: 'Vikram', email: 'vik@indianfood4u.com', location_lat: 51.536233, location_lon: -0.021151, password: 'pass123'},
+    {name: 'Jamie O', email: 'jamie@oliver.com', location_lat: 51.535739, location_lon: -0.077700, password: 'pass123'},
+    {name: 'zoe' , email: 'zoe@wegotcoders.com', password: 'password', location_lat: 51.755733, location_lon: -0.010177},
+    {name: 'Lassey', email: 'dog@dogmail.com', password: 'woofwoof', location_lat: 26.987554, location_lon: -1.876459},
+    {name: 'Nigella', email: 'nigella@nigellalawson.com', password: 'password1', location_lat: 17.172744, location_lon: -3.142876}
+]
 
-User.create!(name: 'Bella', email: 'bella@dogchow.com', location_lat: 51.533593, location_lon: -0.045855, password: 'pass123')
-
-User.create!(name: 'Vikram', email: 'vik@indianfood4u.com', location_lat: 51.536233, location_lon: -0.021151, password: 'pass123')
-
-User.create!(name: 'Jamie O', email: 'jamie@oliver.com', location_lat: 51.535739, location_lon: -0.077700, password: 'pass123')
+User.create!(users)
 
