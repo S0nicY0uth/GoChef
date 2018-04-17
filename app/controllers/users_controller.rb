@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       render 'show'
     else
+      p @user
       render 'edit'
     end    
    
