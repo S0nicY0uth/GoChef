@@ -27,13 +27,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :location_lat %><br />
-    <%= f.text_field :location_lat, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :location_lon %><br />
-    <%= f.text_field :location_lon, autofocus: true %>
+    
+    <%= f.gmap_coordinate_picker api_key: 'AIzaSyAbIxD3RSs1_cfkMsqlr9kCl4N-lA_9KtU', :lat_column => 'location_lat', :lng_column => 'location_lon' , :zoom_level => 10, :default_coordinates => ['51.507351','-0.127758'], autocomplete: { enable: true, class: 'form-control' }  %>
   </div>
 
   <div class="actions">
