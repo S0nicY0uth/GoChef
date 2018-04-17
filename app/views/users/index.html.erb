@@ -1,4 +1,8 @@
+<p>Welcome, <%= current_user.name %>! </p><br>
+<%= link_to "Edit Profile" , "users/#{current_user.id}/edit" %><br>
+
+
 <% @users.each do |chef| %>
-<%= link_to "#{chef.name}", '/'%>  <%= "| #{chef.location_lat} | #{chef.location_lon} |" %> 
+<%= link_to "#{chef.name}", "users/#{chef.id}"%>  <%= "| #{chef.location_lat} | #{chef.location_lon} |" %> 
 <br> 
 <%end%> 
