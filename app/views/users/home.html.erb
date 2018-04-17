@@ -1,0 +1,7 @@
+<p>Welcome to Go Chef! </p><br>
+<p>These chefs are available near you:</p><br>
+
+<div>
+<% @users.each do |chef| %>
+<p><%= link_to "#{chef.name}", "users/#{chef.id}"%>  <%= "| #{chef.location_lat} | #{chef.location_lon} |" %></p>
+<%end%></div><br> 

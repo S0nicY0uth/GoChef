@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
 
   def index
     @users = User.all
+    if user_signed_in? 
+      render 'index'
+    else
+      render 'home'
+    end
   end
 
   def show
@@ -24,8 +29,7 @@ class UsersController < ApplicationController
     else
       p @user
       render 'edit'
-    end    
-   
+    end   
   end
 
   private
