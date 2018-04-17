@@ -1,0 +1,10 @@
+heloo edit
+
+<%= form_for @user, url: {action: "edit"} do |f| %>
+  <%= f.text_field :name %>  
+  <%= f.text_field :email %>
+  <%= f.text_area :bio %>
+  <%= f.text_field :location_lat %>
+  <%= f.text_field :location_lon %>
+  <%= f.submit "Update" %>
+<% end %>
