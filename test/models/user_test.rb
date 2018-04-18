@@ -2,7 +2,8 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   #include Devise::TestHelpers
-  test "the truth" do
-    assert true
+  test "user should not be valid without a name" do
+    user = User.new 
+    refute user.valid?
   end
 end
