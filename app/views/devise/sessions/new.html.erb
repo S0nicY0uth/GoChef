@@ -1,5 +1,6 @@
-<h2>Log in</h2>
-
+<br>
+<h2>Chef Login</h2>
+<div class="chef-login"><br>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -22,5 +23,7 @@
     <%= f.submit "Log in" %>
   </div>
 <% end %>
+<br>
 
-<%= render "devise/shared/links" %>
+Looking to join?<br>
+<%= link_to "Create an Account", new_user_registration_path %></div>

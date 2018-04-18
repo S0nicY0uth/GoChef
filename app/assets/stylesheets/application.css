@@ -14,21 +14,92 @@
  *= require_self
  */
 
- *{
+ /**{
      margin: 0;
- }
+ }*/
+body {
+  background-color: #9baec8
+}
 
- nav {
-     background-color: black;
+
+ header {
+     /*background-color: #d9e1e8;*/
+     background-color: #282c37;
      padding: 15px 10px;
  }
  nav a {
      color: white;
  }
 
- .main-container{
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     flex-direction: column;
+ .main-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
  }
+
+ h1 {
+  font-size: 60px;
+  color: #2b90d9;
+  text-align: center;
+  font-family: 'Lobster', cursive;
+ }
+
+ h2 {
+  font-size: 30px;
+ }
+
+ .create-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+ }
+
+#userpassword {
+  text-align: center;
+ }
+
+ input {
+  width: 200px;
+ }
+
+.field {
+  width: 205px;
+}
+
+#user_remember_me {
+  width: 10px;
+}
+
+label {
+  text-align: center;
+}
+
+.chef-login {
+  text-align: center;
+}
+
+.new-user {
+  text-align: center;
+}
+
+#signup-map {
+  margin: auto;
+  width: 50%;
+}
+
+div.create-container {
+  box-sizing: border-box;
+  text-align: center;
+  margin: auto;
+  width: 50%;
+}
+
+
+.container.show-profile .avatar{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+}

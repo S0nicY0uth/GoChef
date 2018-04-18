@@ -7,30 +7,24 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
   </head>
 
   <body>
-    <nav>
-      <% if user_signed_in? %>
-        <li>
-        <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
-        </li>
-        <%= destroy_user_session_path %>
-      <% elsif current_page?(new_user_session_url) %>
-      <%= "yo yo yo" %>
-      <% else %>
-        <li>
-        <%= link_to('Login', new_user_session_path)  %>  
-        </li>
-      <% end %>
-    </nav>
-    <div class="main-container">
-      <header>
+    <header>
       <h1>Go Chef</h1>
+    <nav>      
+      <%= link_to 'home', root_path %>
+      <% if user_signed_in? %>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+      <% elsif !current_page?(new_user_session_url) %>
+      <%= link_to('Chef Login', new_user_session_path)  %> 
+      <% end %>
+    </nav> 
       </header>
-  
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <div class="main-container">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
   </body>

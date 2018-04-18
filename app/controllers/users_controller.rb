@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @users = User.all
+    if user_signed_in? 
+      render 'index'
+    else
+      render 'home'
+    end
   end
 
   def show
@@ -24,14 +29,12 @@ class UsersController < ApplicationController
     else
       p @user
       render 'edit'
-    end    
-   
+    end   
   end
 
   private
-
-  def user_params
-    params.require(:user).permit(:name, :email, :bio, :location_lat, :location_lon)
-  end
+    def user_params
+      params.require(:user).permit(:name, :email, :bio, :location_lat, :location_lon, :avatar)
+    end
   
 end
