@@ -34,10 +34,10 @@ class UsersControllerTest < ActionController::TestCase
 
     # test "a signed in user should be able to visit their edit profile page" do
     #   user = User.create!({email: 'gordonramsey@gmail.com', password: 'pass123', name: 'Gordon Ramsey', location_lat: 51.512640,location_lon: -0.090390, bio: 'Swears a lot and has numerous TV shows in both UK and America'})
-    #   sign_in users(user)
+    #   sign_in users(:one)
 
     #   p users(:one).bio
-    #   get :edit, params: {id: user.id}
+    #   get :edit, params: {id: users(:one).id}
     #   assert_response :success
     #   assert_match 'Update', @response.body
     # end

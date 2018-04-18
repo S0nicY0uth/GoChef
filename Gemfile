@@ -61,3 +61,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #for registrations
 
 gem 'gmap_coordinates_picker', '~> 0.1.2'
+
+gem 'paperclip', '~> 6.0'
