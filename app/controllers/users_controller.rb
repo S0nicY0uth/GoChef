@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  #before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
 
   def index
     @users = User.all
@@ -33,10 +33,9 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def user_params
-    params.require(:user).permit(:name, :email, :bio, :location_lat, :location_lon)
-  end
+    def user_params
+      params.require(:user).permit(:name, :email, :bio, :location_lat, :location_lon)
+    end
 
   
 end
