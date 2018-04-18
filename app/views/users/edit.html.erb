@@ -18,6 +18,8 @@ heloo edit
   <%= f.text_field :name %>  
   <%= f.text_field :email %>
   <%= f.text_area :bio %>
+  Add Your <%= f.label :avatar %>:
+  <%= f.file_field :avatar %>
   <%= f.text_field :location_lat %>
   <%= f.text_field :location_lon %>
   <%= f.submit "Update" %>
