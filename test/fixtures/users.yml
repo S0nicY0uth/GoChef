@@ -4,8 +4,18 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+one: {
+  name: 'Bella',
+  email: 'belladog@dog.com',
+  location_lat: 51.755733,
+  location_lon: -0.010177
+}
 # column: value
 #
-two: {}
+two: {
+  name: 'Person two',
+  email: 'person@dog.com',
+  location_lat: 51.757733,
+  location_lon: -0.010177
+}
 # column: value
