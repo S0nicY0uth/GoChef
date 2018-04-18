@@ -42,5 +42,9 @@ class UsersControllerTest < ActionController::TestCase
     #   assert_match 'Update', @response.body
     # end
   
-
+class UsersControllerTest < ActionDispatch::IntegrationTest
+  #include Devise::Test::ControllerHelpers
+  test "the truth" do
+    assert true
+  end
 end
