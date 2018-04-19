@@ -122,11 +122,38 @@
  }
 
  .home-chefs .user-profile{
-  height: 60px;
-  background-color: pink;
+  height: 130px;
+  background-color: #f3f3f3;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 15px;
   max-width: 500px;
+  display:  flex;
+  justify-content:  center;
+  align-items: center;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);
+ }
+
+ .home-chefs .user-profile .text{
+   width: 350px;
+   /* background-color: red; */
+   margin-left: 20px;
+ }
+ .home-chefs .user-profile .text p{
+   color: black;
+   font-family: 'Roboto';
+   font-style: normal;
+   font-size: 15px;
+ }
+
+ .home-chefs .chef-list.col-50 a.user-profile{
+   text-decoration: none;
+ }
+
+ .home-chefs .chef-list.col-50 a.user-profile .text h5{
+   font-family: 'Lobster';
+   color: #282c37;
+   font-size: 20px;
+   margin-bottom: 10px;
  }
 
  
@@ -196,6 +223,7 @@ div.create-container {
   border-radius: 50%;
   background-position: center;
   background-size: cover;
+  background-color: blue;
 }
 
 .welcome-container {
