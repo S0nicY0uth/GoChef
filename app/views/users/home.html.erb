@@ -1,8 +1,17 @@
+<div class="hero">
+    <div class="col-50 welcom-text">
+        <h1>Go Chef!</h1>
+        <span>Connecting you with cooks</span>
+    </div>
+    <div class="col-50">
+    </div>
+</div>
+
 <div class='home-chefs'>
 <p>These chefs are available near you:</p><br>
 
 <div class='chef-list'>
-<% @users.each do |chef| %>
-<p><%= link_to "#{chef.name}", "users/#{chef.id}"%>  <%= "| #{chef.location_lat} | #{chef.location_lon} |" %></p>
-<% end %></div>
+    <% @users.each do |chef| %>
+    <p><%= link_to "#{chef.name}", "users/#{chef.id}"%>  <%= "| #{chef.location_lat} | #{chef.location_lon} |" %></p>
+    <% end %></div>
 </div>
