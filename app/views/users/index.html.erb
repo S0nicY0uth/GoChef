@@ -23,13 +23,15 @@
         <div class="col-50">
         </div>
     </div>
-
     <div class='home-chefs'>
-        <div tyle="background-color: pink;height: 300px" class='chef-list col-50'>
+        <div class='chef-list col-50'>
             <% @users.each do |chef| %>
                 <a href="users/<%= chef.id %>" class="user-profile">
-                    <div class="avatar"></div>
-                    <p><%= chef.name %></p>
+                    <div class="avatar" style="background-image:url(<%= chef.avatar.url %>);"></div>
+                    <div class="text">
+                        <h5><%= chef.name %></h5>
+                        <p><%= chef.bio %></p>
+                    </div>
                 </a>          
             <% end %>
         </div>
