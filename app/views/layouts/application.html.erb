@@ -8,20 +8,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100i,300i" rel="stylesheet">
   </head>
 
   <body>
-    <header>
-      <h1>Go Chef</h1>
-    <nav>      
-      <%= link_to 'home', root_path %>
-      <% if user_signed_in? %>
-        <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-      <% elsif !current_page?(new_user_session_url) %>
-      <%= link_to('Chef Login', new_user_session_path)  %> 
-      <% end %>
-    </nav> 
-      </header>
       <div class="main-container">
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
