@@ -31,7 +31,6 @@
         <div class='chef-list col-50'>
             <% @users.each do |chef| %>
                 <a href="users/<%= chef.id %>" class="user-profile">
-
                     <div class="avatar" style="background-image:url(<%= chef.avatar.url %>);"></div>
                     <div class="text">
                         <h5><%= chef.name %></h5>
