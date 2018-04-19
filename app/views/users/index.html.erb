@@ -3,20 +3,24 @@
     <%= link_to "Edit Profile" , "users/#{current_user.id}/edit" %><br>
 
     <div class="welcome-container">
-        <% @users.each do |chef| %> 
+        <% @users.each do |chef| %>
             <a href = "users/<%= chef.id %>" class="chef-link" >
                 <div class="avatar" style="background-image:url(<%= chef.avatar.url %>);"></div>
                 <p><%= chef.name %></p>
             </a>
         <%end%>
     </div>
-<% else %> 
+<% else %>
 
     <div class="hero">
         <div class="hero-buttons">
             <%= link_to('Login', new_user_session_path) %>
         </div>
         <div class="col-50 welcome-text">
+          <div class="ellipse ellipse1"></div>
+          <div class="ellipse ellipse2"></div>
+          <div class="ellipse ellipse3"></div>
+          <div class="ellipse ellipse4"></div>
             <h1>Go Chef!</h1>
             <span>Connecting you with cooks</span>
         </div>
@@ -27,6 +31,7 @@
         <div class='chef-list col-50'>
             <% @users.each do |chef| %>
                 <a href="users/<%= chef.id %>" class="user-profile">
+
                     <div class="avatar" style="background-image:url(<%= chef.avatar.url %>);"></div>
                     <div class="text">
                         <h5><%= chef.name %></h5>
@@ -37,8 +42,8 @@
         </div>
 
         <div style="background-color: pink; height: 300px;" class="col-50">
-            
-        </div> 
+
+        </div>
 
     </div>
 

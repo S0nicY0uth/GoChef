@@ -86,7 +86,7 @@
 
  div.col-50 h1 {
    margin-bottom: 14px;
- } 
+ }
 
  div.col-50 span {
   margin-bottom: 20px;
@@ -94,12 +94,46 @@
   font-size: 21px;
   font-weight: 100;
   padding-right: 50px;
-} 
+}
 
  .col-50.welcome-text{
    height: 300px;
    background-color: rgba(255, 255, 255, 0.7);
    /* border-radius: 0px 22px 22px 0px; */
+ }
+
+ .ellipse {
+    position: absolute;
+    background: radial-gradient(ellipse, transparent, transparent 7px, black 7px, black 10px, transparent 11px);
+    background-size: 36px 40px;
+    width: 50%;
+    height: 20px;
+    top: 250px;
+    left: -5px;
+ }
+
+ .ellipse2 {
+    top: 270px;
+    left: 18px;
+    background-position: 0px -20px;
+    left: 13px;
+ }
+
+ .ellipse3 {
+    position: absolute;
+    background: radial-gradient(ellipse, transparent, transparent 7px, black 7px, black 10px, transparent 11px);
+    background-size: 36px 40px;
+    width: 50%;
+    height: 20px;
+    top: 480px;
+    left: -5px;
+ }
+
+ .ellipse4 {
+    top: 500px;
+    left: 18px;
+    background-position: 0px -20px;
+    left: 13px;
  }
 
  .main-container {
@@ -156,7 +190,7 @@
    margin-bottom: 10px;
  }
 
- 
+
 
  h1 {
   font-size: 130px;
