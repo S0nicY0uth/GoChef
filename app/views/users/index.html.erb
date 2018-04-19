@@ -1,3 +1,4 @@
+
 <% if user_signed_in? %>
     <p>Welcome, <%= current_user.name %>! </p><br>
     <%= link_to "Edit Profile" , "users/#{current_user.id}/edit" %><br>
@@ -12,6 +13,11 @@
     </div>
 <% else %> 
 <div class="hero">
+    <div id="carousel">
+      <div class="hero" style="background-image:url(/images/hero/break.jpg);"></div>
+      <div class="hero" style="background-image:url(/images/hero/chili.jpg);"></div>
+      <div class="hero" style="background-image:url(/images/hero/header.jpg);"></div>
+    </div>
     <div class="hero-buttons">
         <%= link_to('Login', new_user_session_path) %>
     </div>
@@ -45,12 +51,10 @@
             </a>          
         <% end %>
     </div>
-
     <div class="col-50 map">
         <div id="mapid"></div>
     </div> 
 </div>
-
 <% end %>
 
 <script>
