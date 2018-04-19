@@ -96,10 +96,25 @@ div.create-container {
 }
 
 
-.container.show-profile .avatar{
+.container.show-profile .avatar, .welcome-container .avatar{
   height: 100px;
   width: 100px;
   border-radius: 50%;
   background-position: center;
   background-size: cover;
+}
+
+.welcome-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-container a.chef-link{
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

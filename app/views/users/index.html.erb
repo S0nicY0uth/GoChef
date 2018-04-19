@@ -1,8 +1,11 @@
 <p>Welcome, <%= current_user.name %>! </p><br>
 <%= link_to "Edit Profile" , "users/#{current_user.id}/edit" %><br>
 
-
-<% @users.each do |chef| %>
-<%= link_to "#{chef.name}", "users/#{chef.id}"%>  <%= "| #{chef.location_lat} | #{chef.location_lon} |" %> 
-<br> 
-<%end%>
+<div class="welcome-container">
+    <% @users.each do |chef| %> 
+        <a href = "users/<%= chef.id %>" class="chef-link" >
+            <div class="avatar" style="background-image:url(<%= chef.avatar.url %>);"></div>
+            <p><%= chef.name %></p>
+        </a>
+    <%end%>
+</div>
