@@ -3,11 +3,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    if user_signed_in? 
-      render 'index'
-    else
-      render 'home'
-    end
   end
 
   def show
