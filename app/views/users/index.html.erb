@@ -57,11 +57,23 @@
 </div>
 <% end %>
 
+<<<<<<< HEAD
 <script>
     $(document).ready(function(){
         $.get('/',function(data){
             console.log(data);
         });
+=======
+    <div class='home-chefs'>
+        <div tyle="background-color: pink;height: 300px" class='chef-list col-50'>
+             <% @users.each do |chef| %>
+                <a href="users/<%= chef.id %>" class="user-profile">
+                    <div class="avatar"></div>
+                    <p><%= chef.name %></p>
+                </a>          
+            <% end %>
+        </div>
+>>>>>>> 3ab4307a3eafe48734f451c03da3d965b2806e51
 
         var mymap = L.map('mapid').setView([51.505, -0.09], 13);
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -100,4 +112,36 @@
 
 myCarousel = new Carousel("carousel");
 
+<<<<<<< HEAD
+=======
+<% end %>
+<script>
+    var Carousel = function(id){
+    console.log(this);
+    console.log(document);
+    var self = this;
+    this.el = document.getElementById(id);
+    console.log(this.el);
+    this.imgs = this.el.querySelectorAll('div');
+    console.log(this.imgs);
+    this.currentImage = 0;  
+    this.imgs[this.currentImage].classList.add('show');  
+    window.setInterval(function(){ self.advanceImg() }, 5000);
+  }
+  Carousel.prototype.advanceImg = function(){
+    this.currentImage++;
+    if(this.currentImage === this.imgs.length){
+      this.currentImage = 0;
+    }
+    for(var i=0; i< this.imgs.length; i++){
+      if(this.currentImage === i){
+        this.imgs[i].classList.add('show');
+      }else{
+        this.imgs[i].classList.remove('show');
+      }
+    }
+  }
+
+myCarousel = new Carousel("carousel");
+>>>>>>> 3ab4307a3eafe48734f451c03da3d965b2806e51
 </script>
