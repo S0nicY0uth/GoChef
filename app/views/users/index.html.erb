@@ -54,18 +54,35 @@
 <% end %>
 
 <script>
+    
+    class MapPlotter{
+        constructor(id){
+            this.map = L.map(id).setView([51.505, -0.09], 13);
+            this.layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+                maxZoom: 18,
+                id: 'mapbox.streets',
+                accessToken: 'pk.eyJ1IjoiczBuaWN5MHV0aCIsImEiOiJjamc3NHh5a3EwMDMwMzJyemZwMmhhMTRsIn0.PAhVCOJjKkTMquhm4KKqwA'
+            }).addTo(this.map);
+            this.populateMap();
+        }
+
+        populateMap(){
+            $.get('/', function(data){
+                console.log(data);
+                this.data = data;
+                $.each(data.user,function( index, value ) {
+                    let locationLat = data.user[index].location_lat;
+                    let locationLon = data.user[index].location_lon;
+                    L.marker([locationLat, -locationLon]).addTo(this.map);
+                }.bind(this));
+            }.bind(this));
+        }
+    }
+
     $(document).ready(function(){
-        $.get('/',function(data){
-            console.log(data);
-        });
-
-        var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-
-        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-            maxZoom: 18,
-            id: 'mapbox.streets',
-            accessToken: 'pk.eyJ1IjoiczBuaWN5MHV0aCIsImEiOiJjamc3NHh5a3EwMDMwMzJyemZwMmhhMTRsIn0.PAhVCOJjKkTMquhm4KKqwA'
-        }).addTo(mymap);
+        let mp = new MapPlotter('mapid');
     });
+
+
 </script>
