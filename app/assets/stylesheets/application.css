@@ -228,6 +228,12 @@ nav a {
    margin-bottom: 10px;
  }
 
+#blah {
+    position: absolute;
+    bottom: 20px;
+    color: #2b90d9;
+}
+
  h1 {
   font-size: 130px;
   color: #2b90d9;

@@ -1,7 +1,8 @@
-
 <% if user_signed_in? %>
     <p>Welcome, <%= current_user.name %>! </p><br>
     <%= link_to "Edit Profile" , "users/#{current_user.id}/edit" %><br>
+    <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+    <br>
 
     <div class="welcome-container">
         <% @users.each do |chef| %>
@@ -18,7 +19,7 @@
       <div class="hero" style="background-image:url(/images/hero/header.jpg);"></div>
       <div class="hero" style="background-image:url(/images/hero/pasta.jpg);"></div>
       <div class="hero" style="background-image:url(/images/hero/break.jpg);"></div>
-       <div class="hero" style="background-image:url(/images/hero/hero.jpg);"></div>
+      <div class="hero" style="background-image:url(/images/hero/hero.jpg);"></div>
     </div>
     <div class="hero-buttons">
         <%= link_to('Login', new_user_session_path) %>
@@ -31,10 +32,9 @@
           <h1>Go Chef!</h1>
           <span>Connecting you with cooks</span>
     </div>
-    <div class="col-50 hero-right">
-    </div>
+    <a id='blah' href="#filter"><i class="fas fa-chevron-down fa-3x"></i></a>
 </div>
-<div class="home-filter">
+<div class="home-filter" id="filter">
     <div class="col-50">
         <div class="main-search">
             <h3>Refine yo search!</h3>
@@ -80,7 +80,7 @@
                 $.each(data.user,function( index, value ) {
                     let locationLat = data.user[index].location_lat;
                     let locationLon = data.user[index].location_lon;
-                    L.marker([locationLat, -locationLon]).addTo(this.map);
+                    L.marker([locationLat, -locationLon]).addTo(this.map).bindPopup(data.user[index].name);
                 }.bind(this));
             }.bind(this));
         }
@@ -91,14 +91,11 @@
     });
 
     var Carousel = function(id){
-    console.log(this);
-    console.log(document);
     var self = this;
     this.el = document.getElementById(id);
-    console.log(this.el);
     this.imgs = this.el.querySelectorAll('div');
-    this.currentImage = 0;
-    this.imgs[this.currentImage].classList.add('show');
+    this.currentImage = 0;  
+    this.imgs[this.currentImage].classList.add('show');  
     window.setInterval(function(){ self.advanceImg() }, 5000);
   }
   Carousel.prototype.advanceImg = function(){
