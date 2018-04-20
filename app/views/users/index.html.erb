@@ -1,4 +1,3 @@
-
 <% if user_signed_in? %>
     <p>Welcome, <%= current_user.name %>! </p><br>
     <%= link_to "Edit Profile" , "users/#{current_user.id}/edit" %><br>
@@ -91,13 +90,9 @@
     });
 
     var Carousel = function(id){
-    console.log(this);
-    console.log(document);
     var self = this;
     this.el = document.getElementById(id);
-    console.log(this.el);
     this.imgs = this.el.querySelectorAll('div');
-    console.log(this.imgs);
     this.currentImage = 0;  
     this.imgs[this.currentImage].classList.add('show');  
     window.setInterval(function(){ self.advanceImg() }, 5000);
