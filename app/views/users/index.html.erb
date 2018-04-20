@@ -64,7 +64,6 @@
         });
 
         var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
             maxZoom: 18,
@@ -72,4 +71,33 @@
             accessToken: 'pk.eyJ1IjoiczBuaWN5MHV0aCIsImEiOiJjamc3NHh5a3EwMDMwMzJyemZwMmhhMTRsIn0.PAhVCOJjKkTMquhm4KKqwA'
         }).addTo(mymap);
     });
+
+    var Carousel = function(id){
+    console.log(this);
+    console.log(document);
+    var self = this;
+    this.el = document.getElementById(id);
+    console.log(this.el);
+    this.imgs = this.el.querySelectorAll('div');
+    console.log(this.imgs);
+    this.currentImage = 0;  
+    this.imgs[this.currentImage].classList.add('show');  
+    window.setInterval(function(){ self.advanceImg() }, 5000);
+  }
+  Carousel.prototype.advanceImg = function(){
+    this.currentImage++;
+    if(this.currentImage === this.imgs.length){
+      this.currentImage = 0;
+    }
+    for(var i=0; i< this.imgs.length; i++){
+      if(this.currentImage === i){
+        this.imgs[i].classList.add('show');
+      }else{
+        this.imgs[i].classList.remove('show');
+      }
+    }
+  }
+
+myCarousel = new Carousel("carousel");
+
 </script>

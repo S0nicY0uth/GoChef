@@ -14,18 +14,12 @@
 
  */
 
- /**{
-     margin: 0;
- }*/
-
-
-
- /*
- Typography
- */
-
 h1, h2, h3{
   font-family: 'Lobster';
+}
+
+ body {
+  background-color: #ffffff;
 }
 
 .hero{
@@ -40,10 +34,78 @@ h1, h2, h3{
   align-items: center;
   position:  relative;
 }
+ 
+ header {
+     /*background-color: #d9e1e8;*/
+     background-color: #282c37;
+     padding: 15px 10px;
+ }
+ nav a {
+     color: white;
+ }
 
-body {
- background-color: #ffffff;
+ .hero{
+   width: 100%;
+   height: 100vh;
+   background-size: cover;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   position:  relative;
+ }
+
+#carousel {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position:  relative;
+ }
+
+ #carousel div{
+  position:absolute;
+  top:0;
+  opacity:0;
+  transition: opacity 1s;
+  height: 100vh;
 }
+
+ #carousel div.show{
+  opacity:1;
+}
+
+ .hero .hero-buttons{
+   background-color: rgba(255, 255, 255, 0.7);
+   position:  absolute;
+   top: 0px;
+   right:  0px;
+   height: 46px;
+   width: 80px;
+   display:  flex;
+   justify-content:  center;
+   align-items:  center;
+   font-weight:  bold;
+   font-family: 'Lobster';
+   color: #2b90d9;
+ }
+
+ .hero .hero-buttons a{
+  color: #2b90d9;
+  font-size: 22px;
+  text-decoration: none;
+ }
+
+ .welcome-text {
+  position: absolute;
+  left: 0px
+ }
+
  div.col-50 {
    /* background-color: pink; */
    width: 50%;
@@ -398,15 +460,3 @@ div.create-container {
   transition: opacity 1s;
   height: 100vh;
 }
-
-/*#carousel {
-  /*width: 100%;*/
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  background-size: cover;
- }*/
