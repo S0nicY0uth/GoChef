@@ -2,7 +2,12 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @users = User.all
+    @users = User.all  
+    if request.xhr?
+      render status: 200, json: {
+            user: @users
+      }.to_json
+    end
   end
 
   def show
