@@ -80,7 +80,7 @@
                 $.each(data.user,function( index, value ) {
                     let locationLat = data.user[index].location_lat;
                     let locationLon = data.user[index].location_lon;
-                    L.marker([locationLat, -locationLon]).addTo(this.map);
+                    L.marker([locationLat, -locationLon]).addTo(this.map).bindPopup(data.user[index].name);
                 }.bind(this));
             }.bind(this));
         }
