@@ -1,6 +1,7 @@
 <% if user_signed_in? %>
     <p>Welcome, <%= current_user.name %>! </p><br>
     <%= link_to "Edit Profile" , "users/#{current_user.id}/edit" %><br>
+    <%= link_to('Logout', destroy_user_session_path, method: :delete) %><br>
 
     <div class="welcome-container">
         <% @users.each do |chef| %> 
