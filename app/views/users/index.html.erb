@@ -5,14 +5,14 @@
     <br>
 
     <div class="welcome-container">
-        <% @users.each do |chef| %> 
+        <% @users.each do |chef| %>
             <a href = "users/<%= chef.id %>" class="chef-link" >
                 <div class="avatar" style="background-image:url(<%= chef.avatar.url %>);"></div>
                 <p><%= chef.name %></p>
             </a>
         <%end%>
     </div>
-<% else %> 
+<% else %>
 <div class="hero">
     <div id="carousel">
       <div class="hero" style="background-image:url(/images/hero/chili.jpg);"></div>
@@ -50,17 +50,17 @@
                     <h5><%= chef.name %></h5>
                     <p><%= chef.bio %></p>
                 </div>
-            </a>          
+            </a>
         <% end %>
     </div>
     <div class="col-50 map">
         <div id="mapid"></div>
-    </div> 
+    </div>
 </div>
 <% end %>
 
 <script>
-    
+
     class MapPlotter{
         constructor(id){
             this.map = L.map(id).setView([51.505, -0.09], 13);
@@ -72,7 +72,7 @@
             }).addTo(this.map);
             this.populateMap();
         }
-      
+
         populateMap(){
             $.get('/', function(data){
                 console.log(data);

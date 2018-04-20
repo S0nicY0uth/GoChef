@@ -1,10 +1,18 @@
 <div class="container show-profile">
-    <p><%= @user.email %></p>
-    <p><%= @user.name %></p>
-
-    <div class="avatar" style="background-image:url(<%= @user.avatar.url %>);"></div>
-
-    <p><%= @user.bio %></p>
-    <p><%= @user.location_lat %></p>
-    <p><%= @user.location_lon %></p></div>
+  <div class='chefdeetsheader'>
+    <h2> Profile page blurb </h2>
+  </div>
+    <div class='chefdeets'>
+        <div class='avatar' style="background-image:url(<%= @user.avatar.url %>);"></div>
+          <div class='text'>
+             <p><%= @user.name %></p>
+             <p><%= @user.email %></p>
+             <p><%= @user.bio %></p>
+             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
+             <p><%= @user.location_lat %></p>
+             <p><%= @user.location_lon %></p>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
