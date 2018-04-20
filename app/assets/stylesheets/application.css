@@ -67,6 +67,9 @@ body {
   position:  relative;
  }
 
+ h1, h2, h3{
+  font-family: 'Lobster';
+}
  #carousel div{
   position:absolute;
   top:0;
@@ -143,6 +146,7 @@ nav a {
     height: 20px;
     top: 250px;
     left: -5px;
+    display: none;
  }
 
  .ellipse2 {
@@ -439,7 +443,7 @@ div.create-container {
 }
 
 #mapid {
-  height: 100%;
+  height: 300px;
   width: 500px;
   /* margin-top: 50px; */
   position: relative;
