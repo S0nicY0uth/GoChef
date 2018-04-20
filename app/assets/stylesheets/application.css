@@ -20,60 +20,29 @@
 
 
 
+ /*
+ Typography
+ */
 
 
 
 
 
 
- body {
-  background-color: #ffffff;
+
+
+
+ h1, h2, h3{
+  font-family: 'Lobster';
 }
 
 
- header {
-     /*background-color: #d9e1e8;*/
-     background-color: #282c37;
-     padding: 15px 10px;
- }
- nav a {
-     color: white;
- }
 
- .hero{
-   background-image: url(/images/hero.jpg);
-   width: 100%;
-   height: 100vh;
-   background-size: cover;
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
-   justify-content: center;
-   align-items: center;
-   position:  relative;
- }
 
- .hero .hero-buttons{
-   background-color: rgba(255, 255, 255, 0.7);
-   position:  absolute;
-   top: 0px;
-   right:  0px;
-   height: 46px;
-   width: 80px;
-   display:  flex;
-   justify-content:  center;
-   align-items:  center;
-   font-weight:  bold;
-   font-family: 'Lobster';
-   color: #2b90d9;
- }
 
- .hero .hero-buttons a{
-  color: #2b90d9;
-  font-size: 22px;
-  text-decoration: none;
- }
-
+body {
+ background-color: #ffffff;
+}
  div.col-50 {
    /* background-color: pink; */
    width: 50%;
@@ -96,12 +65,14 @@
   padding-right: 50px;
 }
 
- .col-50.welcome-text{
-   height: 300px;
-   background-color: rgba(255, 255, 255, 0.7);
-   /* border-radius: 0px 22px 22px 0px; */
- }
-
+header {
+    /*background-color: #d9e1e8;*/
+    background-color: #282c37;
+    padding: 15px 10px;
+}
+nav a {
+    color: white;
+}
  .ellipse {
     position: absolute;
     background: radial-gradient(ellipse, transparent, transparent 7px, black 7px, black 10px, transparent 11px);
@@ -143,26 +114,31 @@
    flex-direction: column;
  }
 
- .home-chefs{
+.hero{
+  background-image: url(/images/hero.jpg);
   width: 100%;
+  height: 100vh;
+  background-size: cover;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
- }
- .home-chefs .user-profile-container{
-   max-width: 500px;
- }
+  position:  relative;
+}
 
- .home-chefs .user-profile{
-  height: 130px;
-  background-color: #f3f3f3;
-  width: 100%;
-  margin-top: 15px;
-  max-width: 500px;
+.hero .hero-buttons{
+  background-color: rgba(255, 255, 255, 0.7);
+  position:  absolute;
+  top: 0px;
+  right:  0px;
+  height: 46px;
+  width: 80px;
   display:  flex;
   justify-content:  center;
+  align-items:  center;
+  font-weight:  bold;
+  font-family: 'Lobster';
   align-items: center;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);
  }
@@ -195,82 +171,217 @@
  h1 {
   font-size: 130px;
   color: #2b90d9;
-  text-align: center;
-  font-family: 'Lobster', cursive;
-  margin-bottom: 30px;
- }
-
- h2 {
-  font-size: 30px;
- }
-
- .create-container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
- }
-
-#userpassword {
-  text-align: center;
- }
-
- input {
-  width: 200px;
- }
-
-.field {
-  width: 205px;
 }
 
-#user_remember_me {
-  width: 10px;
+.hero .hero-buttons a{
+ color: #2b90d9;
+ font-size: 22px;
+ text-decoration: none;
 }
 
-label {
-  text-align: center;
-}
-
-.chef-login {
-  text-align: center;
-}
-
-.new-user {
-  text-align: center;
-}
-
-#signup-map {
-  margin: auto;
+div.col-50 {
+  /* background-color: pink; */
   width: 50%;
-}
-
-div.create-container {
-  box-sizing: border-box;
-  text-align: center;
-  margin: auto;
-  width: 50%;
-}
-
-
-.container.show-profile .avatar, .welcome-container .avatar,.home-chefs .user-profile .avatar{
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  background-position: center;
-  background-size: cover;
-  background-color: blue;
-}
-
-.welcome-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.welcome-container a.chef-link{
-  width: 33%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  /* margin-top: 7px; */
+}
+
+div.col-50 h1 {
+  margin-bottom: 14px;
+} 
+
+div.col-50 span {
+ margin-bottom: 20px;
+ font-family: 'Roboto', sans-serif;
+ font-size: 21px;
+ font-weight: 100;
+ padding-right: 50px;
+ font-style:  italic;
+ font-weight: 300;
+} 
+
+.col-50.welcome-text{
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.7);
+  /* border-radius: 0px 22px 22px 0px; */
+}
+
+.col-one{
+  min-width: 1000px;
+  justify-content:  center;
+  align-items:  center;
+}
+
+.main-search{
+  min-width: 500px;
+  margin-top: 20px;
+}
+.main-search h3{
+  font-size: 36px;
+  color: #282c37;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.home-chefs{
+ width: 100%;
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+ justify-content: center;
+ align-items: center;
+}
+.home-chefs .user-profile-container{
+  max-width: 500px;
+}
+
+.home-chefs .user-profile{
+ height: 130px;
+ background-color: #f3f3f3;
+ width: 100%;
+ margin-top: 15px;
+ max-width: 500px;
+ display:  flex;
+ justify-content:  center;
+ align-items: center;
+ box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);
+}
+
+.home-chefs .user-profile .text{
+  width: 350px;
+  /* background-color: red; */
+  margin-left: 20px;
+}
+.home-chefs .user-profile .text p{
+  color: black;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 15px;
+}
+
+.home-chefs .chef-list.col-50 a.user-profile{
+  text-decoration: none;
+}
+
+.home-filter{
+  background-color: #2b90d9;
+  min-height: 200px;
+  width: 100%;
+  display: flex;
+}
+
+.home-chefs .chef-list.col-50 a.user-profile .text h5{
+  font-family: 'Lobster';
+  color: #282c37;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+
+
+h1 {
+ font-size: 130px;
+ color: #2b90d9;
+ text-align: center;
+ font-family: 'Lobster', cursive;
+ margin-bottom: 30px;
+}
+
+h2 {
+ font-size: 30px;
+}
+
+.create-container {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+}
+
+#userpassword {
+ text-align: center;
+}
+
+input {
+ width: 200px;
+}
+
+.field {
+ width: 205px;
+}
+
+#user_remember_me {
+ width: 10px;
+}
+
+label {
+ text-align: center;
+}
+
+.chef-login {
+ text-align: center;
+}
+
+.new-user {
+ text-align: center;
+}
+
+#signup-map {
+ margin: auto;
+ width: 50%;
+}
+
+div.create-container {
+ box-sizing: border-box;
+ text-align: center;
+ margin: auto;
+ width: 50%;
+}
+
+
+.container.show-profile .avatar, .welcome-container .avatar,.home-chefs .user-profile .avatar{
+ height: 100px;
+ width: 100px;
+ border-radius: 50%;
+ background-position: center;
+ background-size: cover;
+ background-color: blue;
+}
+
+.welcome-container {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ align-items: center;
+}
+
+.welcome-container a.chef-link{
+ width: 33%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+}
+
+.map{
+  height: 300px;
+  align-self: flex-start;
+  position:  sticky;
+  top: 0px;
+}
+
+#mapid {
+  height: 100%;
+  width: 500px;
+  /* margin-top: 50px; */
+  position: relative;
+  outline: none;
+  margin-top: 15px;
 }
