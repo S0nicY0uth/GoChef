@@ -18,34 +18,4 @@
       <%= yield %>
     </div>
   </body>
-  <script>
-  var Carousel = function(id){
-    console.log(this);
-    console.log(document);
-    var self = this;
-    this.el = document.getElementById(id);
-    console.log(this.el);
-    this.imgs = this.el.querySelectorAll('img');
-    console.log(this.imgs);
-    this.currentImage = 0;  
-    this.imgs[this.currentImage].classList.add('show');  
-    //this.el.addEventListener('click', function(){ self.advanceImg() });
-    window.setInterval(function(){ self.advanceImg() }, 5000);
-  }
-  Carousel.prototype.advanceImg = function(){
-    this.currentImage++;
-    if(this.currentImage === this.imgs.length){
-      this.currentImage = 0;
-    }
-    for(var i=0; i< this.imgs.length; i++){
-      if(this.currentImage === i){
-        this.imgs[i].classList.add('show');
-      }else{
-        this.imgs[i].classList.remove('show');
-      }
-    }
-  }
-
-myCarousel = new Carousel("carousel");
-</script>
 </html>
