@@ -11,47 +11,30 @@
  * It is generally better to create a new file per style scope.
  *
  */
+
+h1 {
+ font-size: 130px;
+ color: #2b90d9;
+ text-align: center;
+ margin-bottom: 30px;
+}
+
+h2 {
+ font-size: 30px;
+}
+
 h1, h2, h3{
-  font-family: 'Lobster';
+  font-family: 'Lobster', cursive;
 }
 
 body {
   background-color: #ffffff;
 }
 
-.hero{
-  background-image: url(/images/hero/hero.jpg);
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  position:  relative;
+header {
+  background-color: #282c37;
+  padding: 15px 10px;
 }
-
- header {
-     /*background-color: #d9e1e8;*/
-     background-color: #282c37;
-     padding: 15px 10px;
- }
- nav a {
-     color: white;
- }
-
- .hero{
-   width: 100%;
-   height: 100vh;
-   background-size: cover;
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
-   justify-content: center;
-   align-items: center;
-   position:  relative;
- }
 
 #carousel {
   width: 100%;
@@ -66,10 +49,7 @@ body {
   transition: all 0.5s ease-in-out;
  }
 
- /* h1, h2, h3{ */
-  /* font-family: 'Lobster'; */
-}
- #carousel div{
+#carousel div{
   position:absolute;
   top:0;
   opacity:0;
@@ -77,109 +57,11 @@ body {
   height: 100vh;
 }
 
- #carousel div.show{
+#carousel div.show{
   opacity:1;
 }
 
- .hero .hero-buttons{
-   background-color: rgba(255, 255, 255, 0.7);
-   position:  absolute;
-   top: 0px;
-   right:  0px;
-   height: 46px;
-   width: 80px;
-   display:  flex;
-   justify-content:  center;
-   align-items:  center;
-   font-weight:  bold;
-   font-family: 'Lobster';
-   color: #2b90d9;
- }
-
- .hero .hero-buttons a{
-  color: #2b90d9;
-  font-size: 22px;
-  text-decoration: none;
- }
-
- .welcome-text {
-  position: absolute;
-  left: 0px
- }
-
- div.col-50 {
-   /* background-color: pink; */
-   width: 50%;
-   height: 100%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
- }
-
- div.col-50 h1 {
-   margin-bottom: 14px;
- }
-
- div.col-50 span {
-  margin-bottom: 20px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 21px;
-  font-weight: 100;
-  padding-right: 50px;
-}
-
-header {
-    /*background-color: #d9e1e8;*/
-    background-color: #282c37;
-    padding: 15px 10px;
-}
-nav a {
-    color: white;
-}
- .ellipse {
-    position: absolute;
-    background: radial-gradient(ellipse, transparent, transparent 7px, black 7px, black 10px, transparent 11px);
-    background-size: 36px 40px;
-    width: 50%;
-    height: 20px;
-    top: 250px;
-    left: -5px;
-    display: none;
- }
-
- .ellipse2 {
-    top: 270px;
-    left: 18px;
-    background-position: 0px -20px;
-    left: 13px;
- }
-
- .ellipse3 {
-    position: absolute;
-    background: radial-gradient(ellipse, transparent, transparent 7px, black 7px, black 10px, transparent 11px);
-    background-size: 36px 40px;
-    width: 50%;
-    height: 20px;
-    top: 480px;
-    left: -5px;
- }
-
- .ellipse4 {
-    top: 500px;
-    left: 18px;
-    background-position: 0px -20px;
-    left: 13px;
- }
-
- .main-container {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
- }
-
-.hero{
+.hero {
   width: 100%;
   height: 100vh;
   background-size: cover;
@@ -191,7 +73,7 @@ nav a {
   position:  relative;
 }
 
-.hero .hero-buttons{
+.hero .hero-buttons {
   background-color: rgba(255, 255, 255, 0.7);
   position:  absolute;
   top: 0px;
@@ -207,49 +89,22 @@ nav a {
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);
  }
 
- .home-chefs .user-profile .text{
-   width: 350px;
-   /* background-color: red; */
-   margin-left: 20px;
- }
- .home-chefs .user-profile .text p{
-   color: black;
-   font-family: 'Roboto';
-   font-style: normal;
-   font-size: 15px;
- }
-
- .home-chefs .chef-list.col-50 a.user-profile{
-   text-decoration: none;
- }
-
- .home-chefs .chef-list.col-50 a.user-profile .text h5{
-   font-family: 'Lobster';
-   color: #282c37;
-   font-size: 20px;
-   margin-bottom: 10px;
- }
-
-#blah {
-    position: absolute;
-    bottom: 20px;
-    color: #2b90d9;
-}
-
- h1 {
-  font-size: 130px;
-  color: #2b90d9;
-}
-
 .hero .hero-buttons a{
- color: #2b90d9;
- font-size: 22px;
- text-decoration: none;
+  color: #2b90d9;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.col-50.welcome-text{
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  left: 0px
 }
 
 div.col-50 {
-  /* background-color: pink; */
   width: 50%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -262,32 +117,98 @@ div.col-50 h1 {
 }
 
 div.col-50 span {
- margin-bottom: 20px;
- font-family: 'Roboto', sans-serif;
- font-size: 21px;
- font-weight: 100;
- padding-right: 50px;
- font-style:  italic;
- font-weight: 300;
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 21px;
+  font-weight: 100;
+  padding-right: 50px;
+  font-style:  italic;
+  font-weight: 300;
 }
 
-.col-50.welcome-text{
-  height: 300px;
-  background-color: rgba(255, 255, 255, 0.7);
-  /* border-radius: 0px 22px 22px 0px; */
+.ellipse {
+  position: absolute;
+  background: radial-gradient(ellipse, transparent, transparent 7px, black 7px, black 10px, transparent 11px);
+  background-size: 36px 40px;
+  width: 50%;
+  height: 20px;
+  top: 250px;
+  left: -5px;
+  display: none;
+ }
+
+.ellipse2 {
+  top: 270px;
+  left: 18px;
+  background-position: 0px -20px;
+  left: 13px;
 }
 
-.col-one{
+.ellipse3 {
+  position: absolute;
+  background: radial-gradient(ellipse, transparent, transparent 7px, black 7px, black 10px, transparent 11px);
+  background-size: 36px 40px;
+  width: 50%;
+  height: 20px;
+  top: 480px;
+  left: -5px;
+}
+
+.ellipse4 {
+  top: 500px;
+  left: 18px;
+  background-position: 0px -20px;
+  left: 13px;
+}
+
+ .main-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+ }
+
+.home-chefs .user-profile .text{
+  width: 350px;
+  margin-left: 20px;
+}
+
+.home-chefs .user-profile .text p{
+  color: black;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 15px;
+}
+
+.home-chefs .chef-list.col-50 a.user-profile{
+  text-decoration: none;
+}
+
+.home-chefs .chef-list.col-50 a.user-profile .text h5{
+  font-family: 'Lobster';
+  color: #282c37;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#blah {
+  position: absolute;
+  bottom: 20px;
+  color: #2b90d9;
+}
+
+.col-one {
   min-width: 1000px;
   justify-content:  center;
   align-items:  center;
 }
 
-.main-search{
+.main-search {
   min-width: 500px;
   margin-top: 20px;
 }
-.main-search h3{
+
+.main-search h3 {
   font-size: 36px;
   color: #282c37;
 }
@@ -299,14 +220,15 @@ div.col-50 span {
   flex-direction: column;
 }
 
-.home-chefs{
- width: 100%;
- display: flex;
- flex-direction: row;
- flex-wrap: wrap;
- justify-content: center;
- align-items: center;
+.home-chefs {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
+
 .home-chefs .user-profile-container{
   max-width: 500px;
 }
@@ -323,46 +245,11 @@ div.col-50 span {
  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);
 }
 
-.home-chefs .user-profile .text{
-  width: 350px;
-  /* background-color: red; */
-  margin-left: 20px;
-}
-.home-chefs .user-profile .text p{
-  color: black;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-size: 15px;
-}
-
-.home-chefs .chef-list.col-50 a.user-profile{
-  text-decoration: none;
-}
-
 .home-filter{
   background-color: #2b90d9;
   min-height: 200px;
   width: 100%;
   display: flex;
-}
-
-.home-chefs .chef-list.col-50 a.user-profile .text h5{
-  font-family: 'Lobster';
-  color: #282c37;
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-h1 {
- font-size: 130px;
- color: #2b90d9;
- text-align: center;
- font-family: 'Lobster', cursive;
- margin-bottom: 30px;
-}
-
-h2 {
- font-size: 30px;
 }
 
 .create-container {
@@ -372,68 +259,67 @@ h2 {
 }
 
 #userpassword {
- text-align: center;
+  text-align: center;
 }
 
 input {
- width: 200px;
+  width: 200px;
 }
 
 .field {
- width: 205px;
+  width: 205px;
 }
 
 #user_remember_me {
- width: 10px;
+  width: 10px;
 }
 
 label {
- text-align: center;
+  text-align: center;
 }
 
 .chef-login {
- text-align: center;
+  text-align: center;
 }
 
 .new-user {
- text-align: center;
+  text-align: center;
 }
 
 #signup-map {
- margin: auto;
- width: 50%;
+  margin: auto;
+  width: 50%;
 }
 
 div.create-container {
- box-sizing: border-box;
- text-align: center;
- margin: auto;
- width: 50%;
+  box-sizing: border-box;
+  text-align: center;
+  margin: auto;
+  width: 50%;
 }
 
-
 .container.show-profile .avatar, .welcome-container .avatar,.home-chefs .user-profile .avatar{
- height: 100px;
- width: 100px;
- border-radius: 50%;
- background-position: center;
- background-size: cover;
- background-color: blue;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  background-color: blue;
 }
 
 .welcome-container {
- display: flex;
- flex-wrap: wrap;
- justify-content: center;
- align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .welcome-container a.chef-link{
- width: 33%;
- display: flex;
- justify-content: center;
- align-items: center;
- flex-direction: column;
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .map{
@@ -450,18 +336,6 @@ div.create-container {
   position: relative;
   outline: none;
   margin-top: 15px;
-}
-
-#carousel div.show{
-  opacity:1;
-}
-
-#carousel div{
-  position:absolute;
-  top:0;
-  opacity:0;
-  transition: opacity 1s;
-  height: 100vh;
 }
 
 .chefdeets {
@@ -487,5 +361,4 @@ div.create-container {
   height: 500px;
   width: 500px;
   border-radius: 50%;
-
 }
