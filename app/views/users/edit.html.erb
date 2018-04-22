@@ -19,6 +19,7 @@
   Add Your <%= f.label :avatar %>:
   <%= f.file_field :avatar %>
   <%= f.text_field :location_lat %>
+  <%= file_field_tag "photos[]", type: :file %>
   <%= f.text_field :location_lon %>
   <%= f.submit "Update" %>
 <% end %>

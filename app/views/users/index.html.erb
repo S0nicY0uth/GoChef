@@ -96,7 +96,7 @@
     this.imgs = this.el.querySelectorAll('div');
     this.currentImage = 0;  
     this.imgs[this.currentImage].classList.add('show');  
-    window.setInterval(function(){ self.advanceImg() }, 5000);
+    window.setInterval(function(){ self.advanceImg() }, 10000);
   }
   Carousel.prototype.advanceImg = function(){
     this.currentImage++;
