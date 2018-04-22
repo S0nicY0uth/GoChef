@@ -15,7 +15,11 @@
         </div>
       </div>
     </div>
+    <div class="yo">
     <% @user.photos.each do |photo| %>
-    <img src="<%= photo.image.url %>">
+    <img src="/images/<%= photo.id %>/<%= p photo.name %>">
+    <%= photo.image.url %>
+    <%= p photo.image %>
     <% end %>
+    </div>
 </div>

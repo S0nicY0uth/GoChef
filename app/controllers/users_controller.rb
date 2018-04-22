@@ -26,12 +26,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       if params[:photos]
-        photos = []
+        name = params[:photos][0].original_filename
         params[:photos].each do |photo|
-          @photo = Photo.create!(name: "photo", image: photo)
-          photos << @photo
+          @user.photos.create!(image: photo,name: name)
         end
-        @user.update!(photos: photos)
       end
       render 'show'
     else
