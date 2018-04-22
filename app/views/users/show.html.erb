@@ -15,4 +15,7 @@
         </div>
       </div>
     </div>
+    <% @user.photos.each do |photo| %>
+    <img src="<%= photo.image.url %>">
+    <% end %>
 </div>
