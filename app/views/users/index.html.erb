@@ -1,3 +1,4 @@
+<div class='main-container'>
 <% if user_signed_in? %>
     <p>Welcome, <%= current_user.name %>! </p><br>
     <%= link_to "Edit Profile" , "users/#{current_user.id}/edit" %><br>
@@ -58,6 +59,7 @@
     </div>
 </div>
 <% end %>
+</div>
 
 <script>
 
