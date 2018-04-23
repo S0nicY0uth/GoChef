@@ -1,3 +1,29 @@
+<style>
+.gallery-container {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-gallery {
+    width: 750px;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-count: 4;
+    margin-top: 50px;
+}
+
+.thumb {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+</style>
+
 <div class="container show-profile">
   <div class='chefdeetsheader'>
     <h2> Profile page blurb </h2>
@@ -15,11 +41,15 @@
         </div>
       </div>
     </div>
-    <div class="yo">
-    <% @user.photos.each do |photo| %>
-    <img src="/images/<%= photo.id %>/<%= p photo.name %>">
-    <%= photo.image.url %>
-    <%= p photo.image %>
-    <% end %>
+    <div class='chefdeetsheader'>
+      <h2> <%= @user.name %>'s Gallery </h2>
+    </div>
+    <div class="gallery-container">
+      <div class="user-gallery">
+      <% @user.photos.each do |photo| %>
+        <% height = photo.random_heights(['500px','510px','520px','530px','550px','560px','570px','580px','590px','600px']) %>
+        <div class="thumb" style="background-image:url(<%= photo.image.url(:medium) %>);height: <%= height %>"></div>
+      <% end %>
+      </div>
     </div>
 </div>

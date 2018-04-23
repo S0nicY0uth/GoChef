@@ -1,4 +1,4 @@
-<%= form_for @user, url: {action: "edit"} do |f| %>
+<%= form_for @user, url: {action: "edit"}, html: { multipart: true } do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -19,7 +19,7 @@
   Add Your <%= f.label :avatar %>:
   <%= f.file_field :avatar %>
   <%= f.text_field :location_lat %>
-  <%= file_field_tag "photos[]", type: :file %>
+  <%= file_field_tag "photos[]", type: :file, multiple: true %>
   <%= f.text_field :location_lon %>
   <%= f.submit "Update" %>
 <% end %>

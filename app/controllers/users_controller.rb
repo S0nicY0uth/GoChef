@@ -28,10 +28,10 @@ class UsersController < ApplicationController
       if params[:photos]
         name = params[:photos][0].original_filename
         params[:photos].each do |photo|
-          @user.photos.create!(image: photo,name: name)
+          @user.photos.create!(image: photo,name: name,image_file_name:name)
         end
       end
-      render 'show'
+      redirect_to :action => "show", :id => @user.id
     else
       p @user
       render 'edit'
