@@ -16,8 +16,6 @@ class HomepageTestsTest < ApplicationSystemTestCase
     #fill_in "Password", with: users(:one).email
     #assert_selector "h2", text: "Chef Login"
     assert page.has_content? "Invalid Email or password."
-    
   end
-
 
 end
