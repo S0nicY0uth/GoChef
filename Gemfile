@@ -65,3 +65,9 @@ gem 'gmap_coordinates_picker', '~> 0.1.2'
 gem 'paperclip', '~> 6.0'
 
 gem 'pry'
+
+gem 'dropzonejs-rails'
+
+gem 'bootstrap', '~> 4.0'
+
+gem 'jquery-rails'

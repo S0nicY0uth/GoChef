@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   def edit
     if current_user.id == params[:id].to_i
       @user = User.find(params[:id])
+      @photo = Photo.new
     else
       redirect_to '/'
     end
