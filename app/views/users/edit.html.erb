@@ -1,3 +1,38 @@
+<style>
+  #imageuploader {
+    min-height: 300px;
+    width: 100%;
+    border: #333 3px dashed;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #2b90d9;
+    flex-wrap: wrap;
+}
+  .dz-preview.dz-processing.dz-image-preview.dz-success.dz-complete{
+    flex-wrap: wrap;
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.dz-default.dz-message{
+  width: 100%;
+  display: block;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+</style>
+<div class="container">
+<h1>Edit Details</h1>
 <%= form_for @user, url: {action: "edit"}, html: { multipart: true } do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -12,14 +47,59 @@
       </ul>
     </div>
   <% end %>
-
-  <%= f.text_field :name %>  
-  <%= f.text_field :email %>
-  <%= f.text_area :bio %>
-  Add Your <%= f.label :avatar %>:
-  <%= f.file_field :avatar %>
-  <%= f.text_field :location_lat %>
-  <%= file_field_tag "photos[]", type: :file, multiple: true %>
-  <%= f.text_field :location_lon %>
-  <%= f.submit "Update" %>
+  <div class="form-group">
+    <%= f.label :name %>:
+    <%= f.text_field :name, class: "form-control" %>
+  </div> 
+  <div class="form-group">
+    <%= f.label :email %>:
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :bio %>:
+    <%= f.text_area :bio, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    Add Your <%= f.label :avatar %>:
+    <%= f.file_field :avatar, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :location_lat %>:
+    <%= f.text_field :location_lat, class: "form-control" %>
+    <%= f.label :location_lon %>:
+    <%= f.text_field :location_lon, class: "form-control" %>
+  </div>
+  <%= f.submit "Update", class: "btn btn-primary" %>
 <% end %>
+
+<h1>Add New Photos</h1>
+
+<%= form_for [@user,@photo], url: user_photos_path(@user), html: { multipart: true, class: "dropzone", id: "imageuploader" } do |f| %>
+  
+<% end %>
+
+
+<h1>Delete Photos</h1>
+<%= form_for [@user,@photo], url: user_photos_path(@user), html: { multipart: true}, method: :delete do |f| %>
+  <% @user.photos.each do |photo| %>
+    <%= f.check_box :_destroy, as: :boolean, required: :false, label: 'Remove image' %>
+  <% end %>
+  <%= f.submit "remove", class: "btn btn-primary" %>
+<% end %>
+
+</div>
+
+
+<script>
+Dropzone.options.imageuploader = {
+  paramName: "photo[photos][]", // The name that will be used to transfer the file
+  maxFilesize: 5, // MB
+  accept: function(file, done) {
+    if (file.name == "justinbieber.jpg") {
+      done("Naha, you don't.");
+    }
+    else { done(); }
+  }
+};
+
+</script>
