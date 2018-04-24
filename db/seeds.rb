@@ -20,3 +20,4 @@ users = [
 ]
 
 User.create!(users)
+
