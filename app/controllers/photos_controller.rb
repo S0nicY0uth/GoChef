@@ -7,13 +7,11 @@ class PhotosController < ApplicationController
     end
 
     def destroy
-        binding.pry
-        @photo = User.find(params[:id])
-        @photo.delete(photo_destroy_params)
-    end
-
-    private
-    def photo_destroy_params
-        params.require(:photo).permit(:id)
+        if Photo.delete(params[:id])
+            flash[:notice] = "Image Deleted"
+            return true
+        else
+            flash[:notice] = "Unable to delete"
+        end
     end
 end
