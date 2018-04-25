@@ -24,3 +24,5 @@
 .DS_Store
 
 coverage/
+public/system
+public/images/[0-9]*

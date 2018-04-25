@@ -1,10 +1,55 @@
+<style>
+.gallery-container {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-gallery {
+    width: 750px;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-count: 4;
+    margin-top: 50px;
+}
+
+.thumb {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+</style>
+
 <div class="container show-profile">
-    <p><%= @user.email %></p>
-    <p><%= @user.name %></p>
-
-    <div class="avatar" style="background-image:url(<%= @user.avatar.url %>);"></div>
-
-    <p><%= @user.bio %></p>
-    <p><%= @user.location_lat %></p>
-    <p><%= @user.location_lon %></p></div>
+  <div class='chefdeetsheader'>
+    <h2> Profile page blurb </h2>
+  </div>
+    <div class='chefdeets'>
+        <div class='avatar' style="background-image:url(<%= @user.avatar.url %>);"></div>
+          <div class='text'>
+             <p><%= @user.name %></p>
+             <p><%= @user.email %></p>
+             <p><%= @user.bio %></p>
+             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
+             <p><%= @user.location_lat %></p>
+             <p><%= @user.location_lon %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='chefdeetsheader'>
+      <h2> <%= @user.name %>'s Gallery </h2>
+    </div>
+    <div class="gallery-container">
+      <div class="user-gallery">
+      <% @user.photos.each do |photo| %>
+        <% height = photo.random_heights(['500px','510px','520px','530px','550px','560px','570px','580px','590px','600px']) %>
+        <div class="thumb" style="background-image:url(<%= photo.image.url(:medium) %>);height: <%= height %>"></div>
+      <% end %>
+      </div>
+    </div>
 </div>

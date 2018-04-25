@@ -1,0 +1,65 @@
+.main-container.login{
+  min-height: 100vh;
+  min-width: 100vh;
+  background-image: url('/images/hero/spread.jpg');
+  background-size: cover;
+}
+
+.login-box {
+  padding: 20px;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  align-items: center;
+  
+  h2 {
+    color: #2b90d9;
+    text-align: center;
+  }
+
+  .signup {
+    padding: 20px;
+  }
+
+  .signup a {
+    padding: 20px;
+    text-decoration: none;
+  }
+
+  .chef-login {
+    text-align: center;
+  }
+}
+
+
+.signup-container {
+  
+  h2 {
+    text-align: center;
+  }
+}
+
+
+.create-container {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+}
+
+.new-user {
+  text-align: center;
+}
+
+#signup-map {
+  margin: auto;
+  width: 50%;
+}
+
+div.create-container {
+  box-sizing: border-box;
+  text-align: center;
+  margin: auto;
+  width: 50%;
+}
+
+

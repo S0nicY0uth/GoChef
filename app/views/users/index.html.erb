@@ -1,6 +1,9 @@
+<div class='main-container'>
 <% if user_signed_in? %>
     <p>Welcome, <%= current_user.name %>! </p><br>
     <%= link_to "Edit Profile" , "users/#{current_user.id}/edit" %><br>
+    <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+    <br>
 
     <div class="welcome-container">
         <% @users.each do |chef| %>
@@ -11,39 +14,99 @@
         <%end%>
     </div>
 <% else %>
-
-    <div class="hero">
-        <div class="hero-buttons">
-            <%= link_to('Login', new_user_session_path) %>
-        </div>
-        <div class="col-50 welcome-text">
+<div class="hero">
+    <div id="carousel">
+      <div class="hero" style="background-image:url(/images/hero/chili.jpg);"></div>
+      <div class="hero" style="background-image:url(/images/hero/header.jpg);"></div>
+      <div class="hero" style="background-image:url(/images/hero/pasta.jpg);"></div>
+      <div class="hero" style="background-image:url(/images/hero/break.jpg);"></div>
+      <div class="hero" style="background-image:url(/images/hero/hero.jpg);"></div>
+    </div>
+    <div class="hero-buttons">
+        <%= link_to('Login', new_user_session_path) %>
+    </div>
+    <div class="col-50 welcome-text">
           <div class="ellipse ellipse1"></div>
           <div class="ellipse ellipse2"></div>
           <div class="ellipse ellipse3"></div>
           <div class="ellipse ellipse4"></div>
-            <h1>Go Chef!</h1>
-            <span>Connecting you with cooks</span>
-        </div>
-        <div class="col-50">
-        </div>
+          <h1>Go Chef!</h1>
+          <span>Connecting you with cooks</span>
     </div>
-    <div class='home-chefs'>
-        <div class='chef-list col-50'>
-            <% @users.each do |chef| %>
-                <a href="users/<%= chef.id %>" class="user-profile">
-                    <div class="avatar" style="background-image:url(<%= chef.avatar.url %>);"></div>
-                    <div class="text">
-                        <h5><%= chef.name %></h5>
-                        <p><%= chef.bio %></p>
-                    </div>
-                </a>          
-            <% end %>
-        </div>
-
-        <div style="background-color: pink; height: 300px;" class="col-50">
-
-        </div>
-
+    <a id='blah' href="#filter"><i class="fas fa-chevron-down fa-3x"></i></a>
+</div>
+<div id="filter">
+  <h3>Refine yo search!</h3>
+</div>
+<div class='home-chefs'>
+    <div class='chef-list col-50'>
+        <% @users.each do |chef| %>
+            <a href="users/<%= chef.id %>" class="user-profile">
+                <div class="avatar" style="background-image:url(<%= chef.avatar.url %>);"></div>
+                <div class="text">
+                    <h5><%= chef.name %></h5>
+                    <p><%= chef.bio %></p>
+                </div>
+            </a>
+        <% end %>
     </div>
-
+    <div class="col-50 map">
+        <div id="mapid"></div>
+    </div>
+</div>
 <% end %>
+</div>
+<script>
+    class MapPlotter{
+        constructor(id){
+            this.map = L.map(id).setView([51.505, -0.09], 13);
+            this.layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+                maxZoom: 18,
+                id: 'mapbox.streets',
+                accessToken: 'pk.eyJ1IjoiczBuaWN5MHV0aCIsImEiOiJjamc3NHh5a3EwMDMwMzJyemZwMmhhMTRsIn0.PAhVCOJjKkTMquhm4KKqwA'
+            }).addTo(this.map);
+            this.populateMap();
+        }
+
+        populateMap(){
+            $.get('/', function(data){
+                console.log(data);
+                this.data = data;
+                $.each(data.user,function( index, value ) {
+                    let locationLat = data.user[index].location_lat;
+                    let locationLon = data.user[index].location_lon;
+                    L.marker([locationLat, -locationLon]).addTo(this.map).bindPopup(data.user[index].name);
+                }.bind(this));
+            }.bind(this));
+        }
+    }
+
+    $(document).ready(function(){
+        let mp = new MapPlotter('mapid');
+    });
+
+    var Carousel = function(id){
+    var self = this;
+    this.el = document.getElementById(id);
+    this.imgs = this.el.querySelectorAll('div');
+    this.currentImage = 0;  
+    this.imgs[this.currentImage].classList.add('show');  
+    window.setInterval(function(){ self.advanceImg() }, 10000);
+  }
+  Carousel.prototype.advanceImg = function(){
+    this.currentImage++;
+    if(this.currentImage === this.imgs.length){
+      this.currentImage = 0;
+    }
+    for(var i=0; i< this.imgs.length; i++){
+      if(this.currentImage === i){
+        this.imgs[i].classList.add('show');
+      }else{
+        this.imgs[i].classList.remove('show');
+      }
+    }
+  }
+
+myCarousel = new Carousel("carousel");
+</script>

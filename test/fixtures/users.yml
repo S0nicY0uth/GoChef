@@ -8,7 +8,8 @@ one: {
   name: 'Bella',
   email: 'belladog@dog.com',
   location_lat: 51.755733,
-  location_lon: -0.010177
+  location_lon: -0.010177,
+  #password: 'dog123'
 }
 # column: value
 #
@@ -19,3 +20,4 @@ two: {
   location_lon: -0.010177
 }
 # column: value
+ 
