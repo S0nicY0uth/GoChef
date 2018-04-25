@@ -16,11 +16,11 @@ class User < ApplicationRecord
 
 
   enum role: [:chef, :customer]
-  after_initialize :set_default_role, :if => :new_record?
+  # after_initialize :set_default_role, :if => :new_record?
 
-  def set_default_role
-    self.role ||= :customer
-  end
+  # def set_default_role
+  #   self.role ||= :customer
+  # end
 
   validates :name, presence: true
   validates :email, presence: true
