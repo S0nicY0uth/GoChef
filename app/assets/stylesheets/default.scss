@@ -19,6 +19,7 @@ h1, h2, h3{
 
 body {
   background-color: #ffffff;
+
 }
 
 header {
@@ -77,7 +78,7 @@ header {
   font-family: $main-font;
   align-items: center;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);
- 
+
   a {
     color: $primary-colour;
     font-size: 22px;
@@ -294,4 +295,14 @@ div.col-50 span {
   height: 500px;
   width: 500px;
   border-radius: 50%;
+}
+
+.notice {
+  margin-top: 0px;
+}
+
+.alert {
+  margin-bottom: 0px;
+  padding: 0px;
+  border: 0px;
 }
