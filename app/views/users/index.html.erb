@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-<div class='main-container login'>
+<div class='main-container loggedin'>
 <div class="login-box">
     <h2><p>Welcome, <%= current_user.name %>! </h2></p><br>
     <%= link_to "Edit Profile" , "users/#{current_user.id}/edit" %><br>
@@ -58,9 +58,7 @@
 </div>
 <% end %>
 </div>
-
 <script>
-
     class MapPlotter{
         constructor(id){
             this.map = L.map(id).setView([51.505, -0.09], 13);
