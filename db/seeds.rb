@@ -28,7 +28,24 @@ skills = [
     {name: "Japenese"},
     {name: "Mexican"},
     {name: "Sushi"},
-    {name: "Indian"}
+    {name: "Indian"},
+    {name: "Soup"},
+    {name: "Veggetatean & Vegan"},
+    {name: "Thai"},
+    {name: "Raw Food"},
+    {name: "Birthday Parties"},
+    {name: "Weddings"},
+    {name: "Formal"},
+    {name: "Casual"},
+    {name: "Silver Service"},
+    {name: "Sandwiches"},
+    {name: "Buffets"}
 ]
 
 Skill.create!(skills)
+
+User.all.each do |user|
+    x = Skill.all.shuffle
+    random_skills = [x[0],x[1],x[2]]
+    user.skills << random_skills
+end

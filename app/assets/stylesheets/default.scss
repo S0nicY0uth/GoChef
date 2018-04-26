@@ -162,6 +162,11 @@ div.col-50 span {
 .home-chefs .user-profile .text{
   width: 350px;
   margin-left: 20px;
+  align-items: flex-start;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: #eee;
 }
 
 .home-chefs .user-profile .text p{
