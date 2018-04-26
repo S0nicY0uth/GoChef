@@ -364,11 +364,11 @@ div.col-50 span {
   margin-top: 250px;
 }
 
-.chefdeets .avatar {
-  height: 500px;
-  width: 500px;
-  border-radius: 50%;
-}
+// .chefdeets, .avatar { // is the box with the profile info in
+//   height: 200px;
+//   width: 700px;
+//   // border-radius: 50%;
+// }
 
 .notice {
   margin-top: 0px;
@@ -380,7 +380,15 @@ div.col-50 span {
   border: 0px;
 }
 
+
+.login-box a {
+font-size: 20px;
+color: black;
+
+}
+
 .multiselect{
   display: block;
   width: 200px;
 }
+

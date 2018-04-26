@@ -3,11 +3,17 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+
     @skills = Skill.all
     if request.xhr?
       render status: 200, json: {
             user: @users
       }.to_json
+    elsif user_signed_in?
+      @user = current_user
+      render "show"
+    else
+      render "index"
     end
   end
 

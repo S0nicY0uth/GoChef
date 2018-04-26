@@ -5,13 +5,24 @@
   background-size: cover;
 }
 
-.login-box {
-  padding: 20px;
-  height: 300px;
+.main-container.loggedin{
+  min-height: 100vh;
+  min-width: 100vh;
+  background-image: url('/images/hero/pasta.jpg');
+  background-size: cover;
+}
+
+.login-box, .chefdeets, .avatar, .text {
+  margin: 30px;
+  height: auto;
   background-color: rgba(255, 255, 255, 0.7);
-  position: absolute;
+  // position: absolute;
   align-items: center;
-  
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+
+
   h2 {
     color: #2b90d9;
     text-align: center;
@@ -33,7 +44,7 @@
 
 
 .signup-container {
-  
+
   h2 {
     text-align: center;
   }
@@ -61,5 +72,3 @@ div.create-container {
   margin: auto;
   width: 50%;
 }
-
-
