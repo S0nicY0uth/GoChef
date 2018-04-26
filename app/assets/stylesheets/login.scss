@@ -12,15 +12,16 @@
   background-size: cover;
 }
 
-.login-box {
-  padding: 20px;
-  height: 300px;
+.login-box, .chefdeets, .avatar, .text {
+  margin: 30px;
+  height: auto;
   background-color: rgba(255, 255, 255, 0.7);
-  position: absolute;
+  // position: absolute;
   align-items: center;
   display:flex;
   justify-content: center;
   flex-direction: column;
+
 
   h2 {
     color: #2b90d9;

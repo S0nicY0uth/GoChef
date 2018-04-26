@@ -26,10 +26,9 @@
 <div class='main-container loggedin'>
 <div class="login-box">
 <div class="container show-profile">
-  <div class='chefdeetsheader'>
+<!-- <div class='chefdeetsheader'> -->
     <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
     <h2> Profile page blurb </h2>
-  </div>
     <div class='chefdeets'>
         <div class='avatar' style="background-image:url(<%= @user.avatar.url %>);"></div>
           <div class='text'>
@@ -44,7 +43,7 @@
       </div>
     </div>
     <div class='chefdeetsheader'>
-      <h2> <%= @user.name %>'s Gallery </h2>
+      <h2> <%= @user.name %>'s Gallery </h2> sg13 7bw
     </div>
     <div class="gallery-container">
       <div class="user-gallery">
@@ -54,4 +53,6 @@
       <% end %>
       </div>
     </div>
+</div>
+</div>
 </div>

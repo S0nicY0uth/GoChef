@@ -2,11 +2,16 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @users = User.all  
+    @users = User.all
     if request.xhr?
       render status: 200, json: {
             user: @users
       }.to_json
+    elsif user_signed_in?
+      @user = current_user
+      render "show"
+    else
+      render "index"
     end
   end
 
@@ -43,5 +48,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :bio, :location_lat, :location_lon, :avatar, :photos)
     end
-  
+
 end

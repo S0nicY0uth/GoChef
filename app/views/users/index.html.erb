@@ -7,14 +7,14 @@
     <br>
 </div>
 </div>
-    <!-- <div class="welcome-container">
+    <div class="welcome-container">
         <% @users.each do |chef| %>
             <a href = "users/<%= chef.id %>" class="chef-link" >
                 <div class="avatar" style="background-image:url(<%= chef.avatar.url %>);"></div>
                 <p><%= chef.name %></p>
             </a>
         <%end%>
-    </div> -->
+    </div>
 <% else %>
 <div class="hero">
     <div id="carousel">
@@ -56,7 +56,7 @@
         <div id="mapid"></div>
     </div>
 </div>
-<% end %>
+<!-- <% end %> -->
 </div>
 <script>
     class MapPlotter{
