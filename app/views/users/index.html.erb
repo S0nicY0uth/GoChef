@@ -39,6 +39,18 @@
 </div>
 <div id="filter">
   <h3>Refine yo search!</h3>
+  <%= form_tag '', :method => :get do %>
+  <div class="form-group">
+  <%= text_field_tag :name, '', placeholder: 'Chef Name' %>
+  </div>
+  <div class="form-group">
+  <%= collection_select(:skills, :ids, @skills, :id, :name, {selected: false}, {multiple: true, class: 'multiselect'}) %>
+  </div>
+  <div class="form-group">
+  <%= text_field_tag :location, '', placeholder: 'Your Location' %>
+  </div>
+  <%= submit_tag 'Filter' %>
+<% end %>
 </div>
 <div class='home-chefs'>
     <div class='chef-list col-50'>
@@ -61,6 +73,9 @@
 <% end %>
 </div>
 <script>
+
+    
+
     class MapPlotter{
         constructor(id){
             this.map = L.map(id).setView([51.505, -0.09], 13);
@@ -88,6 +103,10 @@
 
     $(document).ready(function(){
         let mp = new MapPlotter('mapid');
+    });
+
+    $(document).ready(function(){
+        $('.multiselect').chosen({disable_search_threshold: 10, no_results_text: 'No results matched', width: '100%'});
     });
 
     var Carousel = function(id){
