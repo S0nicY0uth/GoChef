@@ -26,6 +26,10 @@ header {
   background-color: #282c37;
   padding: 15px 10px;
 }
+p{
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
 
 #carousel {
   width: 100%;
@@ -301,7 +305,7 @@ div.col-50 span {
     margin-top: 30px;
   }
 
-  
+
 
 }
 
@@ -380,7 +384,6 @@ div.col-50 span {
   border: 0px;
 }
 
-
 .login-box a {
 font-size: 20px;
 color: black;
@@ -391,4 +394,3 @@ color: black;
   display: block;
   width: 200px;
 }
-
