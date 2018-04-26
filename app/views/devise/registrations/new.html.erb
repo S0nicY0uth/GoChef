@@ -27,7 +27,7 @@
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
       <div class="field">
-        <%= f.radio_button :role, 'Customer', :value => 1, :checked => true %> 
+        <%= f.radio_button :role, 'customer', :value => 1, :checked => true %> 
         <%= label :role, 'Customer' %>
         <%= f.radio_button :role, 'chef', :value => 0 %>
         <%= label :role, 'Chef' %>        
