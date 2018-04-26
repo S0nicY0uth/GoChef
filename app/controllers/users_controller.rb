@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+
+    @skills = Skill.all
     if request.xhr?
       render status: 200, json: {
             user: @users
@@ -31,10 +33,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      if params[:photos]
-        name = params[:photos][0].original_filename
-        params[:photos].each do |photo|
-          @user.photos.create!(image: photo,name: name,image_file_name:name)
+      if params[:user][:skill_ids] 
+        params[:user][:skill_ids][1..-1].each do |skill|
+          @user.skills << Skill.find(skill.to_i)
         end
       end
       redirect_to :action => "show", :id => @user.id
@@ -46,7 +47,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :bio, :location_lat, :location_lon, :avatar, :photos)
+      params.require(:user).permit(:name, :email, :bio, :location_lat, :location_lon, :avatar, :photos, :skills, :role)
     end
-
 end

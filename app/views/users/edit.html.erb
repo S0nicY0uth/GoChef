@@ -61,7 +61,7 @@ h1 {
 </style>
 <div class="container">
 <h1>Edit Details</h1>
-<%= form_for @user, url: {action: "edit"}, html: { multipart: true } do |f| %>
+<%= form_for @user, url: user_path(@user), html: { multipart: true }, :method => :PUT do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -91,6 +91,12 @@ h1 {
     Add Your <%= f.label :avatar %>:
     <%= f.file_field :avatar, class: "form-control" %>
   </div>
+
+<div class="form-group">
+    <%= f.label "Add Some Profile Tags" %>
+    <%= f.collection_select(:skill_ids, Skill.order(:name), :id, :name, {}, {multiple: true, class: 'multiselect'}) %>
+  </div>
+
   <div class="form-group">
     <%= f.label :location_lat %>:
     <%= f.text_field :location_lat, class: "form-control" %>
@@ -102,7 +108,7 @@ h1 {
 
 <h1>Add New Photos</h1>
 
-<%= form_for [@user,@photo], url: user_photos_path(@user), html: { multipart: true, class: "dropzone", id: "imageuploader" } do |f| %>
+<%= form_for [@user,@photo], url: user_photos_path(@user), html:{ multipart: true, class: "dropzone", id: "imageuploader" } do |f| %>
   
 <% end %>
 
@@ -132,8 +138,9 @@ h1 {
     }
   };
 
-  
-}
+  $(document).ready(function(){
+  $('.multiselect').chosen({disable_search_threshold: 10, no_results_text: 'No results matched', width: '100%'});
+});
 
   
 </script>

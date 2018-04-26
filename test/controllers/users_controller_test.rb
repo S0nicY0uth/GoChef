@@ -20,10 +20,10 @@ class UsersControllerTest < ActionController::TestCase
       assert_match 'Logout', @response.body
     end
 
-    test "should show `Chef Login` to unsigned in user" do
-      get :index
-      assert_match 'Chef Login', @response.body
-    end
+    # test "should show `Chef Login` to unsigned in user" do
+    #   get :index
+    #   assert_match 'Chef Login', @response.body
+    # end
 
     test "should display user profile" do
       user = User.create!({email: 'gordonramsey@gmail.com', password: 'pass123', name: 'Gordon Ramsey', location_lat: 51.512640,location_lon: -0.090390, bio: 'Swears a lot and has numerous TV shows in both UK and America'})

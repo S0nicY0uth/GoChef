@@ -39,17 +39,31 @@
 </div>
 <div id="filter">
   <h3>Refine yo search!</h3>
+  <%= form_tag '', :method => :get do %>
+  <div class="form-group">
+  <%= text_field_tag :name, '', placeholder: 'Chef Name' %>
+  </div>
+  <div class="form-group">
+  <%= collection_select(:skills, :ids, @skills, :id, :name, {selected: false}, {multiple: true, class: 'multiselect'}) %>
+  </div>
+  <div class="form-group">
+  <%= text_field_tag :location, '', placeholder: 'Your Location' %>
+  </div>
+  <%= submit_tag 'Filter' %>
+<% end %>
 </div>
 <div class='home-chefs'>
     <div class='chef-list col-50'>
-        <% @users.each do |chef| %>
-            <a href="users/<%= chef.id %>" class="user-profile">
-                <div class="avatar" style="background-image:url(<%= chef.avatar.url %>);"></div>
+        <% @users.each do |user| %>
+          <% if user.role == 'chef' %>
+            <a href="users/<%= user.id %>" class="user-profile">
+                <div class="avatar" style="background-image:url(<%= user.avatar.url %>);"></div>
                 <div class="text">
-                    <h5><%= chef.name %></h5>
-                    <p><%= chef.bio %></p>
+                    <h5><%= user.name %></h5>
+                    <p><%= user.bio %></p>
                 </div>
             </a>
+          <% end %>
         <% end %>
     </div>
     <div class="col-50 map">
@@ -59,6 +73,7 @@
 <!-- <% end %> -->
 </div>
 <script>
+
     class MapPlotter{
         constructor(id){
             this.map = L.map(id).setView([51.505, -0.09], 13);
@@ -86,6 +101,10 @@
 
     $(document).ready(function(){
         let mp = new MapPlotter('mapid');
+    });
+
+    $(document).ready(function(){
+        $('.multiselect').chosen({disable_search_threshold: 10, no_results_text: 'No results matched', width: '100%'});
     });
 
     var Carousel = function(id){

@@ -12,7 +12,8 @@
 //
 //= require rails-ujs
 //= require_tree .
-//= require dropzone
 //= require jquery3
+//= require chosen-jquery
+//= require dropzone
 //= require popper
 //= require bootstrap-sprockets
