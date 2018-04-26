@@ -14,6 +14,14 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :photos, :allow_destroy => true
 
+
+  enum role: [:chef, :customer]
+  # after_initialize :set_default_role, :if => :new_record?
+
+  # def set_default_role
+  #   self.role ||= :customer
+  # end
+
   validates :name, presence: true
   validates :email, presence: true
   validates :location_lat, presence: true

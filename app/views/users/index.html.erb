@@ -42,14 +42,16 @@
 </div>
 <div class='home-chefs'>
     <div class='chef-list col-50'>
-        <% @users.each do |chef| %>
-            <a href="users/<%= chef.id %>" class="user-profile">
-                <div class="avatar" style="background-image:url(<%= chef.avatar.url %>);"></div>
+        <% @users.each do |user| %>
+          <% if user.role == 'chef' %>
+            <a href="users/<%= user.id %>" class="user-profile">
+                <div class="avatar" style="background-image:url(<%= user.avatar.url %>);"></div>
                 <div class="text">
-                    <h5><%= chef.name %></h5>
-                    <p><%= chef.bio %></p>
+                    <h5><%= user.name %></h5>
+                    <p><%= user.bio %></p>
                 </div>
             </a>
+          <% end %>
         <% end %>
     </div>
     <div class="col-50 map">
