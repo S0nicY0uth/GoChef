@@ -163,6 +163,15 @@ div.col-50 span {
   flex-direction: column;
 }
 
+.home-chefs .user-profile .avatar{
+  margin: 20px;
+  margin-left: 15px;
+}
+
+.home-chefs .user-profile .text p{
+  text-align: left;
+}
+
 .home-chefs .user-profile .text{
   width: 350px;
   margin-left: 20px;
@@ -170,7 +179,9 @@ div.col-50 span {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  background-color: #eee;
+  background-color: #f3f3f3;
+  margin: 0px!important;
+  text-align: left;
 }
 
 .home-chefs .user-profile .text p{

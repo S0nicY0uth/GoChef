@@ -21,6 +21,7 @@ class UsersController < ApplicationController
       end
       @users = output
     end
+    
     if request.xhr?
       render status: 200, json: {
             user: @users
@@ -63,6 +64,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :bio, :location_lat, :location_lon, :avatar, :photos, :skills, :role)
+      params.require(:user).permit(:name, :email, :bio, :location_lat, :location_lon, :avatar, :photos, :skills, :role, :distance_to_travel)
     end
 end

@@ -92,6 +92,11 @@ h1 {
     <%= f.file_field :avatar, class: "form-control" %>
   </div>
 
+  <div class="form-group">
+    <%= f.label 'Distance you are prepared to travel' %>:
+    <%= f.text_field :distance_to_travel, class: "form-control" %>
+  </div>
+
 <div class="form-group">
     <%= f.label "Add Some Profile Tags" %>
     <%= f.collection_select(:skill_ids, Skill.order(:name), :id, :name, {}, {multiple: true, class: 'multiselect'}) %>
