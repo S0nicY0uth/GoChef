@@ -2,7 +2,14 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @users = User.all
+
+    if params[:name]
+      name = params[:name]
+      @users = User.where('name LIKE ?', "%#{name}%")
+    else
+      @users = User.all
+    end
+
     @skills = Skill.all
     if request.xhr?
       render status: 200, json: {
