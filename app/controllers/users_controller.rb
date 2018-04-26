@@ -5,6 +5,22 @@ class UsersController < ApplicationController
     @users = User.all
 
     @skills = Skill.all
+    if params[:name]
+      name = params[:name]
+      @users = User.where('name LIKE ?', "%#{name}%")
+    end
+    output = []
+    if params[:skills]
+      params[:skills][:ids][1..-1].each do |skill_id|
+        skill = Skill.find(skill_id.to_i)
+        @users.each do |user|
+          if user.skills.include?(skill)
+            output << user
+          end
+        end
+      end
+      @users = output
+    end
     if request.xhr?
       render status: 200, json: {
             user: @users
