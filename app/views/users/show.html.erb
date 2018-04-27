@@ -99,7 +99,6 @@
   }
 
 </style>
-
 <div class="hero-buttons profile"><h3><%= link_to('Logout', destroy_user_session_path, method: :delete) %></h3></div>
 <div class="banner" style="background-image:url(<%= @user.banner.url %>);">
   <div class="overlay">
@@ -146,3 +145,6 @@
               <% end %>
             </div>   
           <% end %>
+
+</div>
+
