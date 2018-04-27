@@ -22,26 +22,31 @@ users = [
 
 users = User.create!(users)
 
-@bella_rev = Review.create!(rating: 4, review: 'Bella made a very fine biscuit, but I deducted a point due to finding hair in the mix', chef: users[3], customer: users[9])
-@zoe_rev = Review.create!(rating: 5, review: 'Some of the best spacecakes Ive had!', chef: users[7], customer: users[8])
-@zoe_rev3 = Review.create!(rating: 5, review: 'Another review', chef: users[2], customer: users[8])
-@zoe_rev4 = Review.create!(rating: 5, review: 'Another review', chef: users[1], customer: users[8])
-@zoe_rev5 = Review.create!(rating: 2, review: 'Another review', chef: users[1], customer: users[8])
-@zoe_rev6 = Review.create!(rating: 1, review: 'Another review', chef: users[1], customer: users[8])
-@zoe_rev7 = Review.create!(rating: 3, review: 'Another review', chef: users[1], customer: users[8])
-@zoe_rev8 = Review.create!(rating: 2, review: 'Some of the best spacecakes Ive had!', chef: users[7], customer: users[8])
-
+Review.create!(rating: 4, review: 'Bella made a very fine biscuit, but I deducted a point due to finding hair in the mix.', chef: users[3], customer: users[9])
+Review.create!(rating: 5, review: 'Some of the best spacecakes Ive had!', chef: users[6], customer: users[8])
+Review.create!(rating: 5, review: 'Some really tight sushi rolls.', chef: users[6], customer: users[8])
+Review.create!(rating: 5, review: 'Her service was impeccable and her meals were delicious.', chef: users[1], customer: users[9])
+Review.create!(rating: 2, review: 'She showed up late and reeked of last nights party.', chef: users[1], customer: users[8])
+Review.create!(rating: 1, review: 'She did not deliver the agreed upon service, and retroactively billed me for services she did not provide.', chef: users[1], customer: users[8])
+Review.create!(rating: 3, review: 'She redeemed herself to me a bit this time with her sweet, sweet canapes', chef: users[1], customer: users[8])
+Review.create!(rating: 2, review: 'She never turned up, but sent us a party sub instead. It was pretty tasty!', chef: users[7], customer: users[8])
+Review.create!(rating: 1, review: 'What a jackass.', chef: users[0], customer: users[9])
+Review.create!(rating: 1, review: 'Ive never heard so much rude language at a childs birthday party before.', chef: users[0], customer: users[8])
+Review.create!(rating: 3, review: 'Mediocre.', chef: users[2], customer: users[9])
+Review.create!(rating: 4, review: 'Could have used a bit more salt.', chef: users[5], customer: users[8])
+Review.create!(rating: 5, review: 'He is a very handsome guy. Im sold!', chef: users[5], customer: users[9])
+Review.create!(rating: 5, review: 'Gimme fud.', chef: users[7], customer: users[9])
 
 
 skills = [
     {name: "Chinese"},
     {name: "Italian"},
-    {name: "Japenese"},
+    {name: "Japanese"},
     {name: "Mexican"},
     {name: "Sushi"},
     {name: "Indian"},
     {name: "Soup"},
-    {name: "Veggetatean & Vegan"},
+    {name: "Vegetarian & Vegan"},
     {name: "Thai"},
     {name: "Raw Food"},
     {name: "Birthday Parties"},
