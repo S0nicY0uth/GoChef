@@ -66,7 +66,10 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       if params[:user][:skill_ids] 
         params[:user][:skill_ids][1..-1].each do |skill|
-          @user.skills << Skill.find(skill.to_i)
+          a = Skill.find(skill.to_i)
+          if !@user.skills.include?(a)
+            @user.skills << Skill.find(skill.to_i)
+          end
         end
       end
       redirect_to :action => "show", :id => @user.id
@@ -78,6 +81,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :bio, :location_lat, :location_lon, :avatar, :photos, :skills, :role, :distance_to_travel)
+      params.require(:user).permit(:name, :email, :bio, :location_lat, :location_lon, :avatar, :photos, :skills, :role, :distance_to_travel, :banner)
     end
 end
