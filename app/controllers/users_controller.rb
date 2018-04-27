@@ -3,13 +3,15 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-
     @skills = Skill.all
+
     if params[:name]
       name = params[:name]
       @users = User.where('name LIKE ?', "%#{name}%")
     end
+
     output = []
+
     if params[:skills]
       params[:skills][:ids][1..-1].each do |skill_id|
         skill = Skill.find(skill_id.to_i)
@@ -18,9 +20,22 @@ class UsersController < ApplicationController
             output << user
           end
         end
+        @users = output
+      end
+    end
+
+    if params[:location]
+      location = params[:location] << ', UK'
+      output = []
+      @users.each do |user|
+        if user.distance_to(location).to_i <= user.distance_to_travel.to_i
+          output << user
+        end
       end
       @users = output
     end
+
+
     if request.xhr?
       render status: 200, json: {
             user: @users
@@ -63,6 +78,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :bio, :location_lat, :location_lon, :avatar, :photos, :skills, :role)
+      params.require(:user).permit(:name, :email, :bio, :location_lat, :location_lon, :avatar, :photos, :skills, :role, :distance_to_travel)
     end
 end

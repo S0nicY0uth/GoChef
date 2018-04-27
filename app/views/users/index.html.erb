@@ -17,7 +17,7 @@
           <h1>Go Chef!</h1>
           <span>Connecting you with cooks</span>
     </div>
-    <a id='blah' href="#filter"><i class="fas fa-chevron-down fa-3x"></i></a>
+    <a id='blah' href="#filter"><i class="fas fa-chevron-down fa-5x"></i></a>
 </div>
 <div id="filter">
   <h3>Refine yo search!</h3>
@@ -54,6 +54,11 @@
 <!-- <% end %> -->
 </div>
 <script>
+    $(document).ready(function(){
+        $('.multiselect').chosen({disable_search_threshold: 10, no_results_text: 'No results matched', width: '100%'});
+        smoothScroll(300);
+        let mp = new MapPlotter('mapid');
+    });
 
     class MapPlotter{
         constructor(id){
@@ -80,14 +85,6 @@
         }
     }
 
-    $(document).ready(function(){
-        let mp = new MapPlotter('mapid');
-    });
-
-    $(document).ready(function(){
-        $('.multiselect').chosen({disable_search_threshold: 10, no_results_text: 'No results matched', width: '100%'});
-    });
-
     var Carousel = function(id){
     var self = this;
     this.el = document.getElementById(id);
@@ -111,4 +108,18 @@
   }
 
 myCarousel = new Carousel("carousel");
+
+function smoothScroll (duration) {
+	$('a[href^="#"]').on('click', function(event) {
+
+	    var target = $( $(this).attr('href') );
+
+	    if( target.length ) {
+	        event.preventDefault();
+	        $('html, body').animate({
+	            scrollTop: target.offset().top
+	        }, duration);
+	    }
+	});
+}
 </script>
