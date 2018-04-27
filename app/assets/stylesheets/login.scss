@@ -18,8 +18,8 @@
 }
 
 
-.login-box, .chefdeets, .avatar, .text {
-  padding: 30px;
+.login-box, .chefdeets, .avatar, .text-login {
+  margin: 30px;
   height: auto;
   background-color: rgba(255, 255, 255, 0.7);
   // position: absolute;
@@ -36,6 +36,7 @@
   h2 {
     color: #2b90d9;
     text-align: center;
+    margin-top: 20px;
   }
 
   .signup {
