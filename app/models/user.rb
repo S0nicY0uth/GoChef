@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :reviews_given, class_name: 'Review', foreign_key: 'customer_id'
+  has_many :reviews_received, class_name: 'Review', foreign_key: 'chef_id'
   has_many :photos
   has_and_belongs_to_many :skills
   # Include default devise modules. Others available are:
