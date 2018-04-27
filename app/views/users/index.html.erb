@@ -41,6 +41,12 @@
                 <div class="avatar" style="background-image:url(<%= user.avatar.url %>);"></div>
                 <div class="text">
                     <h5><%= user.name %></h5>
+                    <% if user.reviews_received.length > 0 %>
+                      <%= (user.reviews_received.map.sum do |review| %>
+                        <% review.rating %>
+                      <% end) / user.reviews_received.length %>
+                     
+                    <% end %>
                     <p><%= user.bio %></p>
                 </div>
             </a>
