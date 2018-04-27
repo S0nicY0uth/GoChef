@@ -20,7 +20,7 @@ users = [
    {email: 'phatguy@eatsallday.fud', password: 'pass123', name: 'Userman Likestoeat', location_lat: 17.17564, location_lon: -3.52376,  address:'', bio: 'Eats what he finds', role: 1, distance_to_travel: 200}
 ]
 
-users = User.create!(user_data)
+users = User.create!(users)
 
 @bella_rev = Review.create!(rating: 4, review: 'Bella made a very fine biscuit, but I deducted a point due to finding hair in the mix', chef: users[3], customer: users[9])
 @zoe_rev = Review.create!(rating: 5, review: 'Some of the best spacecakes Ive had!', chef: users[7], customer: users[8])
