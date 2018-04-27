@@ -141,7 +141,7 @@
               <% @user.reviews_received.each do |review| %>              
                 <p><%= review.rating %></p><br>
                 <p>"<%= review.review %>"</p><br>
-                <p class='reviewer'>~<%= review.customer.name %></p>
+                <p class='reviewer'>~<%= link_to("#{review.customer.name}", "/users/#{review.customer.id}") %></p>
               <% end %>
             </div>   
           <% end %>
