@@ -66,7 +66,10 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       if params[:user][:skill_ids] 
         params[:user][:skill_ids][1..-1].each do |skill|
-          @user.skills << Skill.find(skill.to_i)
+          a = Skill.find(skill.to_i)
+          if !@user.skills.include?(a)
+            @user.skills << Skill.find(skill.to_i)
+          end
         end
       end
       redirect_to :action => "show", :id => @user.id
