@@ -1,6 +1,7 @@
 $main-font: 'Lobster', cursive;
 $primary-colour: #2b90d9;
 
+
 h1 {
  color: $primary-colour;
  text-align: center;
@@ -192,6 +193,7 @@ div.col-50 span {
   background-color: #f3f3f3;
   margin: 0px!important;
   text-align: left;
+  font-weight: 300;
 }
 
 .home-chefs .user-profile .text p{
@@ -410,6 +412,7 @@ input[type=submit] {
 
 .notice {
   margin-top: 0px;
+  position: absolute;
 }
 
 .alert {
