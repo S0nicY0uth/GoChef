@@ -16,5 +16,5 @@
  *= require default.css
  *= require login.css
  *= require chosen
-
+ *= require users.scss
  */

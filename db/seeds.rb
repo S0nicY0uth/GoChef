@@ -22,7 +22,7 @@ users = [
 
 users = User.create!(user_data)
 
-@bella_rev = Review.create!(rating: 4, review: 'Bella made a very fine biscuit, but I deducted a point due to finding hair in the mix', chef: users[4], customer: users[9])
+@bella_rev = Review.create!(rating: 4, review: 'Bella made a very fine biscuit, but I deducted a point due to finding hair in the mix', chef: users[3], customer: users[9])
 @zoe_rev = Review.create!(rating: 5, review: 'Some of the best spacecakes Ive had!', chef: users[7], customer: users[8])
 @zoe_rev3 = Review.create!(rating: 5, review: 'Another review', chef: users[2], customer: users[8])
 @zoe_rev4 = Review.create!(rating: 5, review: 'Another review', chef: users[1], customer: users[8])
