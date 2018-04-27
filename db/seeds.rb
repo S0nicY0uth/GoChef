@@ -20,7 +20,18 @@ users = [
    {email: 'phatguy@eatsallday.fud', password: 'pass123', name: 'Userman Likestoeat', location_lat: 17.17564, location_lon: -3.52376,  address:'', bio: 'Eats what he finds', role: 1, distance_to_travel: 200}
 ]
 
-User.create!(users)
+users = User.create!(user_data)
+
+@bella_rev = Review.create!(rating: 4, review: 'Bella made a very fine biscuit, but I deducted a point due to finding hair in the mix', chef: users[4], customer: users[9])
+@zoe_rev = Review.create!(rating: 5, review: 'Some of the best spacecakes Ive had!', chef: users[7], customer: users[8])
+@zoe_rev3 = Review.create!(rating: 5, review: 'Another review', chef: users[2], customer: users[8])
+@zoe_rev4 = Review.create!(rating: 5, review: 'Another review', chef: users[1], customer: users[8])
+@zoe_rev5 = Review.create!(rating: 2, review: 'Another review', chef: users[1], customer: users[8])
+@zoe_rev6 = Review.create!(rating: 1, review: 'Another review', chef: users[1], customer: users[8])
+@zoe_rev7 = Review.create!(rating: 3, review: 'Another review', chef: users[1], customer: users[8])
+@zoe_rev8 = Review.create!(rating: 2, review: 'Some of the best spacecakes Ive had!', chef: users[7], customer: users[8])
+
+
 
 skills = [
     {name: "Chinese"},
@@ -49,3 +60,6 @@ User.all.each do |user|
     random_skills = [x[0],x[1],x[2]]
     user.skills << random_skills
 end
+
+
+
