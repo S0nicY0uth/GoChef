@@ -61,74 +61,80 @@
 </div>
 <script>
 
-    class MapPlotter{
-        constructor(id){
-            this.map = L.map(id).setView([51.505, -0.09], 13);
-            this.layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-                maxZoom: 18,
-                id: 'mapbox.streets',
-                accessToken: 'pk.eyJ1IjoiczBuaWN5MHV0aCIsImEiOiJjamc3NHh5a3EwMDMwMzJyemZwMmhhMTRsIn0.PAhVCOJjKkTMquhm4KKqwA'
-            }).addTo(this.map);
-            this.populateMap();
-        }
-
-        populateMap(){
-            $.get('/', function(data){
-                console.log(data);
-                this.data = data;
-                $.each(data.user,function( index, value ) {
-                    let locationLat = data.user[index].location_lat;
-                    let locationLon = data.user[index].location_lon;
-                    L.marker([locationLat, -locationLon]).addTo(this.map).bindPopup(data.user[index].name);
-                }.bind(this));
-            }.bind(this));
-        }
-    }
-
-    $(document).ready(function(){
-        let mp = new MapPlotter('mapid');
-    });
-
-    $(document).ready(function(){
-        $('.multiselect').chosen({disable_search_threshold: 10, no_results_text: 'No results matched', width: '100%'});
-    });
-
-    var Carousel = function(id){
-    var self = this;
-    this.el = document.getElementById(id);
-    this.imgs = this.el.querySelectorAll('div');
-    this.currentImage = 0;
-    this.imgs[this.currentImage].classList.add('show');
-    window.setInterval(function(){ self.advanceImg() }, 10000);
+class MapPlotter{
+  constructor(id){
+      this.map = L.map(id).setView([51.505, -0.09], 13);
+      this.layer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+          attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+          maxZoom: 18,
+          id: 'mapbox.streets',
+          accessToken: 'pk.eyJ1IjoiczBuaWN5MHV0aCIsImEiOiJjamc3NHh5a3EwMDMwMzJyemZwMmhhMTRsIn0.PAhVCOJjKkTMquhm4KKqwA'
+      }).addTo(this.map);
+      this.populateMap();
   }
-  Carousel.prototype.advanceImg = function(){
-    this.currentImage++;
-    if(this.currentImage === this.imgs.length){
-      this.currentImage = 0;
-    }
-    for(var i=0; i< this.imgs.length; i++){
-      if(this.currentImage === i){
-        this.imgs[i].classList.add('show');
-      }else{
-        this.imgs[i].classList.remove('show');
-      }
-    }
+
+  populateMap(){
+    $.get('/', function(data){
+      this.data = data;
+      $.each(data.user,function( index, value ) {
+        if (value.role == "chef") {
+          let a = document.createElement('a');
+          let text = document.createTextNode(data.user[index].name);
+          a.appendChild(text);
+          a.title = data.user[index].name;
+          a.href = "/users/" + data.user[index].id;
+          let locationLat = data.user[index].location_lat;
+          let locationLon = data.user[index].location_lon;
+          L.marker([locationLat, -locationLon]).addTo(this.map).bindPopup(a);
+        };
+      }.bind(this));
+    }.bind(this));
   }
+
+}
+
+$(document).ready(function(){
+    let mp = new MapPlotter('mapid');
+});
+
+$(document).ready(function(){
+    $('.multiselect').chosen({disable_search_threshold: 10, no_results_text: 'No results matched', width: '100%'});
+});
+
+var Carousel = function(id){
+var self = this;
+this.el = document.getElementById(id);
+this.imgs = this.el.querySelectorAll('div');
+this.currentImage = 0;
+this.imgs[this.currentImage].classList.add('show');
+window.setInterval(function(){ self.advanceImg() }, 10000);
+}
+Carousel.prototype.advanceImg = function(){
+this.currentImage++;
+if(this.currentImage === this.imgs.length){
+  this.currentImage = 0;
+}
+for(var i=0; i< this.imgs.length; i++){
+  if(this.currentImage === i){
+    this.imgs[i].classList.add('show');
+  }else{
+    this.imgs[i].classList.remove('show');
+  }
+}
+}
 
 myCarousel = new Carousel("carousel");
 
 function smoothScroll (duration) { 
- $('a[href^="#"]').on('click', function(event) { 
- 
-     var target = $( $(this).attr('href') ); 
- 
-     if( target.length ) { 
-         event.preventDefault(); 
-         $('html, body').animate({ 
-             scrollTop: target.offset().top  
-         }, duration); 
-     } 
- }); 
+  $('a[href^="#"]').on('click', function(event) { 
+    var target = $( $(this).attr('href') ); 
+    if( target.length ) { 
+      event.preventDefault(); 
+      $('html, body').animate({ 
+      scrollTop: target.offset().top  
+      }, duration); 
+    } 
+  }); 
 }
+
 </script>
