@@ -99,7 +99,9 @@
   }
 
 </style>
-<div class="hero-buttons profile"><h3><%= link_to('Logout', destroy_user_session_path, method: :delete) %></h3></div>
+<div class="hero-buttons profile">
+  <%= render 'login' %>
+</div>
 <div class="banner" style="background-image:url(<%= @user.banner.url %>);">
   <div class="overlay">
     <div class="avatar" style="background-image:url(<%= @user.avatar.url %>);"></div>
@@ -147,4 +149,10 @@
           <% end %>
 
 </div>
+
+<% if user_signed_in? %>
+<div class='addReview'>
+ 
+  <% end %>
+
 
