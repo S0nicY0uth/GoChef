@@ -150,9 +150,20 @@
 
 </div>
 
-<% if user_signed_in? %>
-<div class='addReview'>
+<% if user_signed_in? && !current_page?("/users/#{current_user.id}") && User.find(params[:id]).role != 'customer' %>
+
+  <div class='addReview'>
+    <% if @message %>
+      <p><%= @message %></p>
+    <% end %>
+    <p>Leave a review for <%= @user.name %>!</p>
+    <%= form_for @review, url: "/users/#{@user.id}" do |f| %>
+      <%= f.text_field :rating %>
+      <%= f.text_area :review %>
+      <%= f.submit "Create" %>
+    <% end %>
+  </div>
  
-  <% end %>
+<% end %>
 
 
