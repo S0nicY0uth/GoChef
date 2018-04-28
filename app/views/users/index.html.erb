@@ -42,10 +42,13 @@
             <div class="text">
                 <h5><%= user.name %></h5>
                 <% if user.reviews_received.length > 0 %>
-                  <p><%= ((user.reviews_received.map.sum do |review| %>
+                  <p><% rating = ((user.reviews_received.map.sum do |review| %>
                     <% review.rating %>
                   <% end) / user.reviews_received.length) %>
-                  <i class="far fa-star"></i>out of <%= user.reviews_received.length %> reviews</p>                     
+                  <% rating.times do  
+                    puts %><i class="far fa-star"></i>
+                  <% end %>
+                 out of <%= user.reviews_received.length %> reviews</p>                     
                 <% end %>
                 <p><%= user.bio %></p>
             </div>
@@ -102,12 +105,12 @@ $(document).ready(function(){
 });
 
 var Carousel = function(id){
-var self = this;
-this.el = document.getElementById(id);
-this.imgs = this.el.querySelectorAll('div');
-this.currentImage = 0;
-this.imgs[this.currentImage].classList.add('show');
-window.setInterval(function(){ self.advanceImg() }, 10000);
+  var self = this;
+  this.el = document.getElementById(id);
+  this.imgs = this.el.querySelectorAll('div');
+  this.currentImage = 0;
+  this.imgs[this.currentImage].classList.add('show');
+  window.setInterval(function(){ self.advanceImg() }, 10000);
 }
 Carousel.prototype.advanceImg = function(){
 this.currentImage++;
