@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .user-gallery {
@@ -12,6 +13,7 @@
     justify-content: center;
     column-count: 4;
     margin-top: 50px;
+    margin: 30px 125px;
 }
 
 .thumb {
@@ -31,6 +33,7 @@
     align-items: center;
     flex-direction: column;
     position: relative;
+    margin-bottom: 50px;
   }
 
   .banner .avatar {
@@ -86,7 +89,7 @@
     align-items: center;
   }
 
-  .bio-container {
+  .inner-container {
     max-width: 1000px;
     display: flex;
     justify-content: center;
@@ -126,7 +129,7 @@
 </div>
 
 <div class="profile-content">
-  <div class="bio-container">
+  <div class="inner-container">
     <h1>Bio</h1>
     <p>
       <% if @user.role == 'customer' %>
@@ -139,28 +142,34 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent blandit varius nulla, id tempor eros mattis volutpat. Duis auctor nec nibh vitae scelerisque. Phasellus risus justo, aliquam eu nunc id, volutpat hendrerit turpis. Pellentesque luctus dui odio, sed vehicula leo cursus in. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas vitae blandit magna, sed suscipit erat. Nam malesuada bibendum enim non consequat. Morbi faucibus in mauris ac maximus. Curabitur aliquet est at turpis pharetra elementum. Integer congue, velit et tincidunt bibendum, libero leo fermentum libero, id mollis libero felis nec urna. Sed in dui nulla. Vestibulum eget libero id sapien mattis facilisis.</p>
   </div>
 </div>
- <% if @user.photos.length > 0 %>
-          <div class="gallery-container">
-            <h2> <%= @user.name %>'s Gallery </h2>
-            <div class="user-gallery">
-              <% @user.photos.each do |photo| %>
-                <% height = photo.random_heights(['500px','510px','520px','530px','550px','560px','570px','580px','590px','600px']) %>
-                <div class="thumb" style="background-image:url(<%= photo.image.url(:medium) %>);height: <%= height %>"></div>
-              <% end %>
-              <% end %>
-            </div>
-          </div>
+<br>
+<div class="profile-content gallery">
+  <div class="inner-container">
+  <h2> <%= @user.name %>'s Gallery </h2>
+    <% if @user.photos.length > 0 %>
+    <div class="gallery-container">
+      <div class="user-gallery">
+        <% @user.photos.each do |photo| %>
+          <% height = photo.random_heights(['500px','510px','520px','530px','550px','560px','570px','580px','590px','600px']) %>
+          <div class="thumb" style="background-image:url(<%= photo.image.url(:medium) %>);height: <%= height %>"></div>
+        <% end %>
+      </div>
+    </div>
+<% end %>
+    </div>
+  </div>
+</div>
 
-          <% if @user.reviews_received.length > 0 %>
-            <div class='reviews'>
-              <h2><%= @user.name %>'s Reviews:</h2>
-              <% @user.reviews_received.each do |review| %>              
-                <p><%= review.rating %></p><br>
-                <p>"<%= review.review %>"</p><br>
-                <p class='reviewer'>~<%= link_to("#{review.customer.name}", "/users/#{review.customer.id}") %></p>
-              <% end %>
-            </div>   
-          <% end %>
+<% if @user.reviews_received.length > 0 %>
+  <div class='reviews'>
+    <h2><%= @user.name %>'s Reviews:</h2>
+    <% @user.reviews_received.each do |review| %>              
+      <p><%= review.rating %></p><br>
+      <p>"<%= review.review %>"</p><br>
+      <p class='reviewer'>~<%= link_to("#{review.customer.name}", "/users/#{review.customer.id}") %></p>
+    <% end %>
+  </div>   
+<% end %>
 
 </div>
 
@@ -179,5 +188,4 @@
   </div>
  
 <% end %>
-
 
