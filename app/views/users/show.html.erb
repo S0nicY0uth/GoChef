@@ -98,6 +98,10 @@
     text-align: left;
   }
 
+.fa-star:before {
+  color: #2b90d9;
+}
+
 </style>
 <div class="hero-buttons profile">
   <%= render 'login' %>
@@ -106,6 +110,15 @@
   <div class="overlay">
     <div class="avatar" style="background-image:url(<%= @user.avatar.url %>);"></div>
     <h1><%= @user.name %></h1>
+    <% if @user.role == 'chef' %>
+      <p><% rating = ((@user.reviews_received.map.sum do |review| %>
+          <% review.rating %>
+        <% end) / @user.reviews_received.length) %>
+        <% rating.times do  %>
+          <% puts %><i class="far fa-star fa-2x"></i>
+        <% end %></p>                 
+      <% end %>
+
     <div class="banner-bio">
       <p><%= @user.bio %></p>
     </div>
@@ -116,11 +129,12 @@
   <div class="bio-container">
     <h1>Bio</h1>
     <p>
-      <% @user.skills.each do |skill| %>
-      <span>
-      <%= skill.name %>
-      </span>
+      <% if @user.role == 'customer' %>
+        <p>Favourite foods:</p>
       <% end %>
+      <p><% @user.skills.each do |skill| %>
+        <span><%= skill.name %></span>
+      <% end %></p>
     </p>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent blandit varius nulla, id tempor eros mattis volutpat. Duis auctor nec nibh vitae scelerisque. Phasellus risus justo, aliquam eu nunc id, volutpat hendrerit turpis. Pellentesque luctus dui odio, sed vehicula leo cursus in. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas vitae blandit magna, sed suscipit erat. Nam malesuada bibendum enim non consequat. Morbi faucibus in mauris ac maximus. Curabitur aliquet est at turpis pharetra elementum. Integer congue, velit et tincidunt bibendum, libero leo fermentum libero, id mollis libero felis nec urna. Sed in dui nulla. Vestibulum eget libero id sapien mattis facilisis.</p>
   </div>
