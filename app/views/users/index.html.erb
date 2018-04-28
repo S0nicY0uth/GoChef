@@ -34,28 +34,28 @@
   <%= submit_tag 'Filter' %>
 </div>
 <div class='home-chefs'>
-    <div class='chef-list col-50'>
-        <% @users.each do |user| %>
-          <% if user.role == 'chef' %>
-            <a href="users/<%= user.id %>" class="user-profile">
-            <div class="avatar" style="background-image:url(<%= user.avatar.url %>);"></div>
-            <div class="text">
-                <h5><%= user.name %></h5>
-                <% if user.reviews_received.length > 0 %>
-                  <p><% rating = ((user.reviews_received.map.sum do |review| %>
-                    <% review.rating %>
-                  <% end) / user.reviews_received.length) %>
-                  <% rating.times do  
-                    puts %><i class="far fa-star"></i>
-                  <% end %>
-                 out of <%= user.reviews_received.length %> reviews</p>                     
-                <% end %>
-                <p><%= user.bio %></p>
-            </div>
-            </a>
+  <div class='chef-list col-50'>
+  <% @users.each do |user| %>
+    <% if user.role == 'chef' %>
+      <a href="users/<%= user.id %>" class="user-profile">
+      <div class="avatar" style="background-image:url(<%= user.avatar.url %>);"></div>
+      <div class="text">
+        <h5><%= user.name %></h5>
+        <% if user.reviews_received.length > 0 %>
+          <p><% rating = ((user.reviews_received.map.sum do |review| %>
+            <% review.rating %>
+          <% end) / user.reviews_received.length) %>
+          <% rating.times do  %>
+            <%= puts %><i class="far fa-star"></i>
           <% end %>
+          out of <%= user.reviews_received.length %> reviews</p>                     
         <% end %>
-    </div>
+        <p><%= user.bio %></p>
+      </div>
+      </a>
+    <% end %>
+  <% end %>
+  </div>
     <div class="col-50 map">
         <div id="mapid"></div>
     </div>
