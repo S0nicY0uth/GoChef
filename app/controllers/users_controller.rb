@@ -40,16 +40,12 @@ class UsersController < ApplicationController
       render status: 200, json: {
             user: @users
       }.to_json
-    elsif user_signed_in?
-      @user = current_user
-      render "show"
-    else
-      render "index"
     end
   end
 
   def show
     @user = User.find(params[:id])
+    @review = Review.new
   end
 
   def edit
