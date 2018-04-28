@@ -40,11 +40,6 @@ class UsersController < ApplicationController
       render status: 200, json: {
             user: @users
       }.to_json
-    elsif user_signed_in?
-      @user = current_user
-      render "show"
-    else
-      render "index"
     end
   end
 
