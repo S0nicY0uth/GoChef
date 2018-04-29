@@ -23,13 +23,13 @@
   <h3>Refine yo search!</h3>
   <%= form_tag '', :method => :get do %>
   <div class="form-group">
-  <%= text_field_tag :name, '', placeholder: 'Chef Name' %>
+  <%= text_field_tag :name, nil, placeholder: 'Chef Name' %>
   </div>
   <div class="form-group">
   <%= collection_select(:skills, :ids, @skills, :id, :name, {selected: false}, {multiple: true, class: 'multiselect'}) %>
   </div>
   <div class="form-group">
-  <%= text_field_tag :location, '', placeholder: 'Your Location' %>
+  <%= text_field_tag :location, nil, placeholder: 'Your Location' %>
   </div>
   <%= submit_tag 'Filter' %>
 </div>
