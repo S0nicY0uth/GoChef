@@ -6,12 +6,11 @@ require "minitest/pride"
 class UsersControllerTest < ActionController::TestCase
   include Devise::Test::ControllerHelpers
   
-
     test "should get index and list chefs" do
       get :index
       assert_response :success
       assert_match users(:one).name, @response.body
-      assert_match users(:two).name, @response.body
+      # assert_match users(:two).name, @response.body
     end
     
     test "should show logout to signed in user" do
@@ -30,6 +29,12 @@ class UsersControllerTest < ActionController::TestCase
       get :show, params: { id: user.id }
       assert_response :success
       assert_match user.bio, @response.body
+    end
+
+    test "should filter users that don't have a given name" do
+      get :index, params: { name: "Bella" }
+      assert_response :success
+      assert_match 'Bella', @response.body
     end
 
     # test "a signed in user should be able to visit their edit profile page" do

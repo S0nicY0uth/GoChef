@@ -9,6 +9,8 @@ one: {
   email: 'belladog@dog.com',
   location_lat: 51.755733,
   location_lon: -0.010177,
+  role: 0,
+  distance_to_travel: 100
   #password: 'dog123'
 }
 # column: value
@@ -17,7 +19,8 @@ two: {
   name: 'Person two',
   email: 'person@dog.com',
   location_lat: 51.757733,
-  location_lon: -0.010177
+  location_lon: -0.010177,
+  role: 1
 }
 # column: value
  
