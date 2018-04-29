@@ -76,12 +76,13 @@
     justify-content: center;
     align-items: center;
   }
-  .bio-container {
+  .left-container {
     max-width: 1000px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
+    width: 100%;
   }
   .profile-container h1{
     text-align: left;
@@ -107,7 +108,7 @@
 </div>
 
 <div class="profile-content">
-  <div class="bio-container">
+  <div class="left-container">
     <h1>Bio</h1>
     <p>
       <% @user.skills.each do |skill| %>
@@ -130,7 +131,8 @@
     <% end %>
   </div>
 </div>
-
+<div class="profile-content">
+<div class="left-container">
 <% if @user.reviews_received.length > 0 %>
   <div class='reviews'>
     <h2><%= @user.name %>'s Reviews:</h2>
@@ -141,11 +143,12 @@
     <% end %>
   </div>   
 <% end %>
-
 </div>
-
+</div>
+</div>
 <% if user_signed_in? && !current_page?("/users/#{current_user.id}") && User.find(params[:id]).role != 'customer' %>
-
+<div class="profile-content">
+<div class="left-container">
   <div class='addReview'>
     <% if @message %>
       <p><%= @message %></p>
@@ -157,5 +160,6 @@
       <%= f.submit "Create" %>
     <% end %>
   </div>
- 
+ </div>
+</div>
 <% end %>
