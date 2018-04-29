@@ -5,7 +5,6 @@ require "minitest/pride"
 
 class UsersControllerTest < ActionController::TestCase
   include Devise::Test::ControllerHelpers
-  
     test "should get index and list chefs" do
       get :index
       assert_response :success
@@ -76,5 +75,13 @@ class UsersControllerTest < ActionController::TestCase
       get :index, params: { location: 'Newcastle Upon Tyne' }
       refute_match 'Bella', @response.body
     end
+
+    test "a user should be able to edit their own name" do
+      sign_in users(:one)
+      put :update, params: {id: users(:one).id, user: {"name"=>"Bella Name Change", "email"=>"zoe@wegotcoders.com", "bio"=>"Probably loves the flash more than she loves cooking but makes a mean brownie", "distance_to_travel"=>"50", "location_lat"=>"51.755733", "location_lon"=>"-0.010177"}}
+      get :show, params: {id: users(:one).id}
+      assert_match 'Bella Name Change', @response.body
+    end
+
 
   end
