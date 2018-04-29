@@ -34,7 +34,7 @@
   <%= submit_tag 'Filter' %>
 </div>
 <div class='home-chefs'>
-  <div class='user-profile'>
+  <div class='chef-list col-50'>
   <% @users.each do |user| %>
     <% if user.role == 'chef' %>
       <a href="users/<%= user.id %>" class="user-profile">
