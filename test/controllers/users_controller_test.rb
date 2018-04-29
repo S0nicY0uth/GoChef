@@ -10,7 +10,6 @@ class UsersControllerTest < ActionController::TestCase
       get :index
       assert_response :success
       assert_match users(:one).name, @response.body
-      # assert_match users(:two).name, @response.body
     end
     
     test "should show logout to signed in user" do
@@ -19,10 +18,17 @@ class UsersControllerTest < ActionController::TestCase
       assert_match 'Logout', @response.body
     end
 
-    # test "should show `Chef Login` to unsigned in user" do
-    #   get :index
-    #   assert_match 'Chef Login', @response.body
-    # end
+    test "should show `Chef Login` to unsigned in user" do
+      get :index
+      assert_match 'Login', @response.body
+    end
+
+    test "a signed in user should be able to visit their edit profile page" do
+      sign_in users(:one)
+      get :edit, params: {id: users(:one).id}
+      assert_response :success
+      assert_match 'Update', @response.body
+    end
 
     test "should display user profile" do
       user = User.create!({email: 'gordonramsey@gmail.com', password: 'pass123', name: 'Gordon Ramsey', location_lat: 51.512640,location_lon: -0.090390, bio: 'Swears a lot and has numerous TV shows in both UK and America'})
@@ -37,13 +43,38 @@ class UsersControllerTest < ActionController::TestCase
       assert_match 'Bella', @response.body
     end
 
-    # test "a signed in user should be able to visit their edit profile page" do
-    #   user = User.create!({email: 'gordonramsey@gmail.com', password: 'pass123', name: 'Gordon Ramsey', location_lat: 51.512640,location_lon: -0.090390, bio: 'Swears a lot and has numerous TV shows in both UK and America'})
-    #   sign_in users(:one)
+    test "the search function should not be case sensitive" do
+      get :index, params: { name: "bella" }
+      assert_response :success
+      assert_match 'Bella', @response.body
+    end
 
-    #   p users(:one).bio
-    #   get :edit, params: {id: users(:one).id}
-    #   assert_response :success
-    #   assert_match 'Update', @response.body
-    # end
+    test "the search function should not need the name field to be added in full" do
+      get :index, params: { name: "bell" }
+      assert_response :success
+      assert_match 'Bella', @response.body
+    end
+
+    test "the search function should be able to filter chefs by skills" do
+      get :index, params: { skills: {ids: ['',skills(:one).id.to_s] }}
+      assert_response :success
+      assert_match 'Bella', @response.body
+    end
+
+    test "the search function should not show users who do not have a searched for skill" do
+      get :index, params: { skills: {ids: ['',skills(:one).id.to_s] }}
+      assert_response :success
+      refute_match 'My name is Mr Chef', @response.body
+    end
+
+    test "I should be able to filter the users by a location they are willing to travel to" do
+      get :index, params: { location: 'Oxford' }
+      assert_match 'Bella', @response.body
+    end
+
+    test "I should be able to filter the users by a location they are unwilling to travel to" do
+      get :index, params: { location: 'Newcastle Upon Tyne' }
+      refute_match 'Bella', @response.body
+    end
+
   end

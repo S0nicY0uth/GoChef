@@ -6,13 +6,12 @@ class UsersController < ApplicationController
     @skills = Skill.all
 
     if params[:name] != '' && params[:name] != nil
-      name = params[:name]
-      @users = User.where('name LIKE ?', "%#{name}%")
+      name = params[:name].downcase
+      @users = User.where('lower(name) LIKE ?', "%#{name}%")
     end
 
-    output = []
-
     if params[:skills]
+      output = []
       params[:skills][:ids][1..-1].each do |skill_id|
         skill = Skill.find(skill_id.to_i)
         @users.each do |user|
@@ -23,8 +22,8 @@ class UsersController < ApplicationController
         @users = output
       end
     end
+
     if params[:location] != '' && params[:location] != nil
-      # binding.pry
       location = params[:location] << ', UK'
       output = []
       @users.each do |user|
