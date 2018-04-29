@@ -92,6 +92,14 @@
   <div class="overlay">
     <div class="avatar" style="background-image:url(<%= @user.avatar.url %>);"></div>
     <h1><%= @user.name %></h1>
+    <% if @user.role == 'chef' && @user.reviews_received.length > 0 %>
+      <p><% rating = ((@user.reviews_received.map.sum do |review| %>
+          <% review.rating %>
+        <% end) / @user.reviews_received.length) %>
+        <% rating.times do  %>
+          <% puts %><i class="far fa-star fa-2x"></i>
+        <% end %></p>                 
+      <% end %>
     <div class="banner-bio">
       <p><%= @user.bio %></p>
     </div>
