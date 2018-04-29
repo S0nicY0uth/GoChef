@@ -35,7 +35,6 @@ class UsersController < ApplicationController
       @users = output
     end
 
-
     if request.xhr?
       render status: 200, json: {
             user: @users
