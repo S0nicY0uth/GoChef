@@ -86,7 +86,8 @@
   }
   .profile-container h1{
     text-align: left;
-  }
+}
+
 </style>
 <div class="hero-buttons profile"><h3><%= link_to('Logout', destroy_user_session_path, method: :delete) %></h3></div>
 <div class="banner" style="background-image:url(<%= @user.banner.url %>);">
@@ -131,24 +132,25 @@
     <% end %>
   </div>
 </div>
-<div class="profile-content">
-<div class="left-container">
+
 <% if @user.reviews_received.length > 0 %>
-  <div class='reviews'>
+  
     <h2><%= @user.name %>'s Reviews:</h2>
-    <% @user.reviews_received.each do |review| %>              
-      <p><%= review.rating %></p><br>
+    <div class='reviews'>
+    <% @user.reviews_received.each do |review| %> 
+    <div class='user-reviews'>            
+      <p class='stars'><% stars = review.rating %>
+        <% stars.times do  %>
+          <% puts %><i class="far fa-star fa-2x"></i>
+        <% end %></p><br>      
       <p>"<%= review.review %>"</p><br>
-      <p class='reviewer'>~<%= link_to("#{review.customer.name}", "/users/#{review.customer.id}") %></p>
+      <p class='reviewer'>~<%= link_to("#{review.customer.name}", "/users/#{review.customer.id}") %></p></div>
     <% end %>
   </div>   
 <% end %>
-</div>
-</div>
-</div>
+
 <% if user_signed_in? && !current_page?("/users/#{current_user.id}") && User.find(params[:id]).role != 'customer' %>
-<div class="profile-content">
-<div class="left-container">
+
   <div class='addReview'>
     <% if @message %>
       <p><%= @message %></p>
@@ -160,6 +162,4 @@
       <%= f.submit "Create" %>
     <% end %>
   </div>
- </div>
-</div>
 <% end %>
