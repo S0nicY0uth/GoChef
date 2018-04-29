@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @users = User.all
     @skills = Skill.all
 
-    if params[:name]
+    if params[:name] != '' && params[:name] != nil
       name = params[:name]
       @users = User.where('name LIKE ?', "%#{name}%")
     end
@@ -23,8 +23,8 @@ class UsersController < ApplicationController
         @users = output
       end
     end
-
-    if params[:location]
+    if params[:location] != '' && params[:location] != nil
+      # binding.pry
       location = params[:location] << ', UK'
       output = []
       @users.each do |user|
